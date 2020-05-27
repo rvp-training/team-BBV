@@ -2,14 +2,15 @@
 // 文字コード設定
 header('Content-Type: text/json; charset=UTF-8');
 
-try {
-  $db = new PDO('pgsql:host=54.238.116.49 ;port=$POSTGRES_PORT:5432;$dbname=$POSTGRES_DB;user=$POSTGRES_USER;password=$POSTGRES_PASSWORD');
-  print('接続成功');
-} catch(PDOException $e) {
-  echo 'DB接続エラー: ' . $e->getMessage();
-}
+// try {
+//   $db = new PDO('pgsql:host=db;port=5432;dbname=$POSTGRES_DB;user=$POSTGRES_USER;password=$POSTGRES_PASSWORD');
+//   print('接続成功');
+// } catch(PDOException $e) {
+//   echo 'DB接続エラー: ' . $e->getMessage();
+// }
 
-// $connection = pg_connect("host=db dbname=postgres user=postgres password=password");
+
+
 // $arr['pg'] = pg_version($connection)['client'];
 // pg_close($connection);
 
