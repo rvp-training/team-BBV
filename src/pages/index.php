@@ -3,7 +3,7 @@
 <head></head>
 <body>
     <?php include('../components/header.php'); ?>
-    <h1>メインページです</h1>
+    <h1>メインページです！！！！！</h1>
     <a href="http://localhost:8888/pages/authenticate/login">ログイン</a>
     <p>
         <?php
