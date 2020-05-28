@@ -1,0 +1,133 @@
+body {
+    background-color:#f7f6f4;
+}
+
+#sidebar {
+    position: fixed;
+    position: relative;
+    width: 110px;
+    height: 1080px; 
+    float: left;
+    background-color: #1f0f83;
+    color: #efa003;
+    text-align: center;
+}
+
+#sidebar-title {
+    margin-top: 30px;
+    padding: 20px 10px;
+}
+
+.workspace{
+    font-size: small;
+    border-top: 2px solid #efa003;
+    border-bottom: 2px solid #efa003;
+}
+
+#sidebar-body { 
+    
+    padding: 0px  ; 
+}
+
+
+.logout {
+    position: absolute;
+    left: 10px;
+    bottom: 600px;
+}
+
+.crestepost {
+    position: absolute;
+    left: 10px;
+    bottom: 550px;
+}
+
+h1{
+    font-size: 24px;
+    margin: 0px;
+    padding: 30px 190px;
+    color: #1f0f83;
+}
+
+.user-info{
+    text-align: right;
+    margin-right: 200px;
+}
+
+.picture{
+    width: 2000px;
+}
+
+ul{
+    margin: 50px 100px;
+	float: left;
+	list-style: none;
+} 
+
+.many{
+    text-align: right;
+}
+
+.top{
+    width: 200px;
+    height: 200px;
+}
+
+
+.side-botton {
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+}
+
+br::before {
+	content: "\A" ;
+	white-space: pre ;
+}
+
+
+.poster-info {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #FFF;
+    border: solid 3px #555;
+    box-sizing: border-box;
+  }
+      
+.poster-info:before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    margin-left: -15px;
+    border: 12px solid transparent;
+    border-bottom: 12px solid #FFF;
+    z-index: 2;
+  }
+      
+.poster-info:after {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    margin-left: -17px;
+    border: 14px solid transparent;
+    border-bottom: 14px solid #555;
+    z-index: 1;
+    }
+      
+.poster-info  {
+    margin: 0;
+    padding: 0;
+      }
+
+
+
+
+
