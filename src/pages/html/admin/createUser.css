@@ -4,6 +4,7 @@ body {
 
 #sidebar {
     position: relative;
+    position: fixed;
     width: 110px;
     height: 1080px; 
     float: left;
@@ -31,8 +32,8 @@ body {
 
 .logout {
     position: absolute;
-    left: 10px;
-    bottom: 50px;
+    top: 400px;
+    left: 20px;
 }
 
 h1 {
