@@ -1,6 +1,7 @@
 <?php
 // 文字コード設定
-header('Content-Type: text/json; charset=UTF-8');
+//header('Content-Type: text/json; charset=UTF-8');
+
 
 // try {
 //   $db = new PDO('pgsql:host=db;port=5432;dbname=$POSTGRES_DB;user=$POSTGRES_USER;password=$POSTGRES_PASSWORD');

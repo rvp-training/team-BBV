@@ -1,0 +1,23 @@
+
+
+
+.form-title{
+    text-align:center;
+    margin-top: 100px;
+}
+
+.admin{
+    text-align:center;
+}
+
+.form-error{
+    color: gold;
+}
+
+div{
+    text-align:center;
+    background-color:#1F0F83;
+    margin: 70px 170px;
+    padding: 50px;
+    color: beige;
+}
