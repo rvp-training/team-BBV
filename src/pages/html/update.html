@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ユーザー情報設定</title>
+        <link rel="stylesheet" type="text/css" href="update.css">
+    </head>
+
+    <body>
+
+    <!--一般ユーザーサイドバー-->
+    <div id="sidebar">
+        <div id="sidebar-title">
+            <img src="ユーザーのプロフィール画像">
+            <p>ログイン中のユーザー名</p>
+        </div>
+        <div id="sidebar-body">
+            <p class="workspace">ワークスペース</p>
+            <p><button class="side-botton" onclick="ここにURLいれる！！">システム<span class="br">関連</span></button></p>
+            <p><input class="side-botton" type="submit" name="botton" value="日常"></p> 
+            <p class="logout"><a href="遷移先の画面のURL"><img src="ログアウトの画像URL" alt="ログアウト"></a></p>
+            <p class="crestepost"><a href="遷移先の画面のURL"><img src="カメラマークの画像URL" alt="新規投稿"></a></p>
+        </div>
+    </div>
+    
+        <!--コンテンツ-->
+        <div id="update-left">
+            <h1>- ユーザー情報設定 -</h1>
+            <ul id="update-list">
+                <li>
+                    <p class="item">ユーザー名※</p>
+                    <p class="get-item">”名前をGET”</p>
+                </li>
+                <li>
+                    <p class="item">所属部署※</p>
+                    <p class="get-item">”所属部署をGET”</p>
+                </li>
+                <li>
+                    <p class="item">ひとこと自己紹介　<span>(全角または半角50字以内)</span></p>
+                    <textarea maxlength="50"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div id="update-right">
+            <p>プロフィール写真</p>
+            <img id="profile" src="ここにアイコン画像GET">
+            <form method="post" enctype="multipart/form-data">
+                画像ファイル<input type="file" name="pic">
+                <br>
+                <input type="submit" name="botan" value="send">
+                </form>
+        </div>
+            <input id="button" type="submit" value="変更を保存" />
+            <p id="message">※所属部署・氏名に変更が必要な方はシステム管理者までご連絡ください。</p>
+    </body>
+</html>

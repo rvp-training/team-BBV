@@ -1,0 +1,133 @@
+body {
+    background-color:#f7f6f4;
+}
+
+#sidebar {
+    position: fixed;
+    position: relative;
+    width: 110px;
+    height: 1080px; 
+    float: left;
+    background-color: #1f0f83;
+    color: #efa003;
+    text-align: center;
+}
+
+.side-botton {
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+}
+
+#sidebar-title {
+    margin-top: 30px;
+    padding: 20px 10px;
+}
+
+.workspace{
+    font-size: small;
+    border-top: 2px solid #efa003;
+    border-bottom: 2px solid #efa003;
+}
+
+#sidebar-body { 
+    
+    padding: 0px  ; 
+}
+
+
+.logout {
+    position: absolute;
+    left: 10px;
+    bottom: 600px;
+}
+
+.crestepost {
+    position: absolute;
+    left: 10px;
+    bottom: 550px;
+}
+
+
+h1 {
+    font-size: 24px;
+    margin: 0px;
+    padding: 30px 190px;
+    color: #1f0f83;
+}
+
+#update-list {
+    font-size: 18px;
+    list-style: none;
+    padding-left: 200px;
+    position: relative;
+}
+
+.item {
+    margin: 30px 0px 8px 0px;
+}
+
+.get-item {
+    margin: 0px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    font-size: 16px;
+}
+
+textarea {
+    width: 300px;
+    height: 50px;
+    font-size: 16px;
+}
+
+#update-list {
+    font-size: 18px;
+}
+
+
+#update-list span {
+    font-size: 11px;
+}
+
+.adress {
+    float: left;
+}
+
+select {
+    width: 150px;
+    height: 30px;
+}
+
+.br::before {
+	content: "\A" ;
+	white-space: pre ;
+}
+
+#button {
+    margin: 50px 400px;
+    padding: 8px 20px;
+    background-color: #ffe269;
+    border-radius: 8px;
+}
+
+#profile {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /*画像の縦横比を変えずに上記サイズにトリミング */
+}
+
+#update-right {
+    position: absolute;
+    left: 680px;
+    top: 150px;
+}
+
+.br::before {
+	content: "\A" ;
+	white-space: pre ;
+}
+
+#message {
+    font-size: 14px;
+    padding-left: 300px;
+}
