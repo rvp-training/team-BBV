@@ -10,7 +10,7 @@ $db->exec('CREATE TABLE users (
   image varchar(255),
   introduction varchar(255),
   is_admin boolean NOT NULL DEFAULT false,
-  updated_at datetime NOT NULL,
+  updated_at timestamp NOT NULL,
   is_deleted boolean NOT NULL DAFAULT false,
   PRIMARY KEY(id));
   ');

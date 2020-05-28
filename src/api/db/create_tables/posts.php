@@ -7,7 +7,7 @@ $db->exec('CREATE TABLE posts (
   workspace_id int REFERENCES workspaces(id),
   title varchar(255) NOT NULL,
   text varchar(8000),
-  created_at datetime NOT NULL,
+  created_at timestamp NOT NULL,
   PRIMARY KEY(id));
   ');
 ?>
