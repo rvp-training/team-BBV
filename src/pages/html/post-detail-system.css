@@ -1,0 +1,111 @@
+body {
+    background-color:#f7f6f4;
+}
+
+#sidebar {
+    position: relative;
+    position: fixed;
+    width: 110px;
+    height: 1080px; 
+    float: left;
+    background-color: #1f0f83;
+    color: #efa003;
+    text-align: center;
+}
+
+#sidebar-title {
+    margin-top: 30px;
+    padding: 20px 10px;
+}
+
+.workspace{
+    font-size: small;
+    border-top: 2px solid #efa003;
+    border-bottom: 2px solid #efa003;
+}
+
+#sidebar-body { 
+    
+    padding: 0px  ; 
+}
+
+
+.logout {
+    position: absolute;
+    left: 10px;
+    bottom: 600px;
+}
+
+.crestepost {
+    position: absolute;
+    left: 10px;
+    bottom: 550px;
+}
+
+.side-botton {
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+}
+
+/*コンテンツ*/
+
+#contents {
+    margin-left: 170px;
+}
+
+#contents ul {
+    list-style: none;
+}
+
+#postuser {
+    font-size: 14px;
+}
+
+#postuser-icon {
+    width: 60px;
+    height: 60px;
+}
+
+#post-date {
+    font-size: 11px;
+}
+
+#postuser-info {
+    position: relative;
+    padding: 0px;
+}
+
+#title {
+    position: absolute;
+    left: 300px;
+    top: 40px;
+    font-size: 18px;
+}
+
+.on {
+    margin-left: 40px;
+    width: 675px;
+    height: 450px;
+}
+
+#comment {
+    position: fixed;
+    margin-left: 140px;
+    bottom: 5px;
+}
+
+#comment li {
+    list-style: none;
+    float: left;
+}
+
+#comment textarea {
+    width: 900px;
+    height: 80px;
+}
+
+#comment input {
+    width: 80px;
+    height: 80px;
+}
