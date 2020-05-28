@@ -1,0 +1,17 @@
+<?php
+require('../setting.php');
+
+$db->exec('CREATE TABLE users (
+  id serial NOT NULL,
+  name varchar(255) NOT NULL,
+  email varchar(255) UNIQUE NOT NULL,
+  password varchar(255) NOT NULL,
+  department_id int REFERENCES departments(id),
+  image varchar(255),
+  introduction varchar(255),
+  is_admin boolean NOT NULL DEFAULT false,
+  updated_at datetime NOT NULL,
+  is_deleted boolean NOT NULL DAFAULT false,
+  PRIMARY KEY(id));
+  ');
+?>
