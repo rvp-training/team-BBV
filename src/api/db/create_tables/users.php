@@ -12,7 +12,7 @@ $sql = "CREATE TABLE users (
   introduction varchar(255),
   is_admin boolean NOT NULL DEFAULT false,
   updated_at timestamp NOT NULL,
-  is_deleted boolean NOT NULL DAFAULT false,
+  is_deleted boolean NOT NULL DEFAULT false,
   PRIMARY KEY(id));
 ";
 
