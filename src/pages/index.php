@@ -10,7 +10,6 @@
             $url = "http://web/api/version.php";
             $response = file_get_contents($url);
             echo $response;
-        /** */
         ?>
     </p>
 </body>
