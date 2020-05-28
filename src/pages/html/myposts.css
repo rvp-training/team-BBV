@@ -10,6 +10,7 @@ body {
     float: left;
     background-color: #1f0f83;
     color: #efa003;
+    text-align: center;
 }
 
 #sidebar-title {
@@ -18,12 +19,13 @@ body {
 }
 
 .workspace{
+    font-size: small;
     border-top: 2px solid #efa003;
     border-bottom: 2px solid #efa003;
 }
 
 #sidebar-body { 
-    float: left;
+    
     padding: 0px  ; 
 }
 
@@ -72,13 +74,13 @@ ul{
 }
 
 
-.br::before {
-	content: "\A" ;
-	white-space: pre ;
-}
-
-.side-button {
+.side-botton {
     border-radius: 8px;
     width: 80px;
     height: 50px;
+}
+
+br::before {
+	content: "\A" ;
+	white-space: pre ;
 }
