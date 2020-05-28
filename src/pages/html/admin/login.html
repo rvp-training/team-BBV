@@ -3,21 +3,20 @@
 <head>
     <meta charset="utf-8">
     <title>ログイン</title>
-    <link >
-    <scpipt type></scpipt>
+    <link rel="stylesheet" href="login.css" type="text/css">
 </head>
 <body>
-    <h1>RVP画像共有チャット</h1>
-    <div>
-        <ul>Emailアドレス、パスワードを確認してください。</ul>
-        <ul>管理者Email</ul>    
-        <input type="email" name="email">
-        <ul>管理者パスワード</ul>
-        <input type="password" name="password">
-        <ul>
-        <input type="submit" name="botton" value="ログイン">
-        </ul>    
+    <h1 class="form-title">RVP画像共有チャット</h1>
+    <div id="from">
+    <form action="送信先のURL">
+        <p class="form-error">Emailアドレス、パスワードを確認してください。</p>
+        <p>管理者Email</p>    
+        <p class="mail"><input type="email" name="email"></p>
+        <p>管理者パスワード</p>
+        <p class="pass"><input type="password" name="password"></p>
+        <p class="submit"><input type="submit" name="botton" value="ログイン"></p>
+    </form>
     </div>
-    <a href="ここに管理者ログイン画面のURL">一般ユーザーの方はこちら</a>
+    <p class="admin"><a href="ここに一般ユーザーログイン画面のURL">一般ユーザーの方はこちら</a></p>
 </body>
 </html>
