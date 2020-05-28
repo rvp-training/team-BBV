@@ -1,8 +1,7 @@
 <?php
-
 include '../../setting.php';
 
-$sql = "CREATE TABLE workspaces (
+$sql = "CREATE TABLE departments (
   id serial NOT NULL,
   name varchar(255) NOT NULL,
   PRIMARY KEY(id));

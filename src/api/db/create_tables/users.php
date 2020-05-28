@@ -1,7 +1,8 @@
 <?php
-require('../setting.php');
 
-$db->exec('CREATE TABLE users (
+include '../../setting.php';
+
+$sql = "CREATE TABLE users (
   id serial NOT NULL,
   name varchar(255) NOT NULL,
   email varchar(255) UNIQUE NOT NULL,
@@ -13,5 +14,14 @@ $db->exec('CREATE TABLE users (
   updated_at timestamp NOT NULL,
   is_deleted boolean NOT NULL DAFAULT false,
   PRIMARY KEY(id));
-  ');
+";
+
+$res = pg_query($db, $sql);
+
+if ($res){
+  print('success');
+}else{
+  print('error');
+}
+
 ?>
