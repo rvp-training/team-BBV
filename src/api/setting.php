@@ -5,4 +5,6 @@ if(!$db){
   print('db接続エラーです');
 }
 
+header('Content-Type: text/json; charset=UTF-8');
+
 ?>
