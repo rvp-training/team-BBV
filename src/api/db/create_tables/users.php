@@ -11,7 +11,7 @@ $sql = "CREATE TABLE users (
   image varchar(255),
   introduction varchar(255),
   is_admin boolean NOT NULL DEFAULT false,
-  updated_at timestamp NOT NULL,
+  updated_at timestamp,
   is_deleted boolean NOT NULL DEFAULT false,
   PRIMARY KEY(id));
 ";
