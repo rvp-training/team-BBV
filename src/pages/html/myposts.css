@@ -1,0 +1,84 @@
+body {
+    background-color:#f7f6f4;
+}
+
+#sidebar {
+    position: fixed;
+    position: relative;
+    width: 110px;
+    height: 1080px; 
+    float: left;
+    background-color: #1f0f83;
+    color: #efa003;
+}
+
+#sidebar-title {
+    margin-top: 30px;
+    padding: 20px 10px;
+}
+
+.workspace{
+    border-top: 2px solid #efa003;
+    border-bottom: 2px solid #efa003;
+}
+
+#sidebar-body { 
+    float: left;
+    padding: 0px  ; 
+}
+
+
+.logout {
+    position: absolute;
+    left: 10px;
+    bottom: 600px;
+}
+
+.crestepost {
+    position: absolute;
+    left: 10px;
+    bottom: 550px;
+}
+
+#pagename{
+    font-size: 24px;
+    margin: 0px;
+    padding: 30px 190px;
+    color: #1f0f83;
+}
+
+.user-info{
+    text-align: right;
+    margin-right: 200px;
+}
+
+.picture{
+    width: 2000px;
+}
+
+ul{
+    margin: 50px 100px;
+	float: left;
+	list-style: none;
+} 
+
+.many{
+    text-align: right;
+}
+
+.top{
+    width: 200px;
+    height: 200px;
+}
+
+
+.br::before {
+	content: "\A" ;
+	white-space: pre ;
+}
+
+.side-button {
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+}
