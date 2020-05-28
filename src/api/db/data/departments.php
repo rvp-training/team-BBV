@@ -13,8 +13,7 @@ VALUES
 ";
 
 $res = pg_query($db, $sql);
-print($sql);
-print($res);
+
 if ($res){
   print('success');
 }else{
