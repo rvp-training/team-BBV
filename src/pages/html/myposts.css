@@ -3,8 +3,8 @@ body {
 }
 
 #sidebar {
-    position: fixed;
     position: relative;
+    position: fixed;
     width: 110px;
     height: 1080px; 
     float: left;
