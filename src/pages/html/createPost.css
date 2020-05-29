@@ -63,6 +63,7 @@ h1 {
     margin: 0px;
     padding: 30px 190px;
     color: #1f0f83;
+    position: relative;
 }
 
 #create {
@@ -75,15 +76,18 @@ h1 {
     height: 55px;
     vertical-align: middle;
     margin-bottom: 20px;
+    position: absolute;
+    top: 80px;
 }
 
 .img-delete {
     position: relative;
-    width: 100%;
+    margin: 20px;
+    float: left;
 }
 
 #images {
-    float: left;
+    margin-top: 60px;
 }
 
 .image {
@@ -94,6 +98,10 @@ h1 {
     position: absolute;
     top: 0px;
     background-color: #f9f1b5;
+}
+
+#create form {
+    clear: both;
 }
 
 #workspace-radio {
