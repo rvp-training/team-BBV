@@ -24,34 +24,34 @@
         </div>
 
         <!--コンテンツ-->
-        <div id="create">
+        <form action="api/creteuser.php" id="create" method="post">
             <h1>- 新規ユーザー登録 -</h1>
             <ul id="create-list">
                 <li>
                     <p>ユーザー名  <span>(全角または半角2～20字)</span></p>
-                    <input maxlength="20" minlength="2">
+                    <input type="text" name="name" maxlength="20" minlength="2">
                 </li>
                 <li>
                     <p>所属部署</p>
-                    <select>
-                        <option>営業</option>
-                        <option>情報システム</option>
-                        <option>人事</option>
-                        <option>管理</option>
+                    <select name="department_id">
+                        <option value="1">総務部</option>
+                        <option value="2">経理部</option>
+                        <option value="3">業務部</option>
+                        <option value="4">情報システム部</option>
+                        <option value="5">商品部</option>
+                        <option value="6">営業部</option>
                     </select>
-
                 </li>
                 <li>
                     <p>Email</p>
-                    <input type="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
-                    
+                    <input type="email" name="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
                 </li>
                 <li>
                     <p>パスワード  <span>(半角英数字6字)</span></p>
-                    <input type="password" pattern="[A-Za-z]{6}" maxlength="6" >
+                    <input type="password" name="password" pattern="[A-Za-z]{6}" maxlength="6" >
                 </li>
             </ul>
-            <input id="button" type="submit" value="新規登録" />
-        </div>
+            <input id="button" type="submit" value="新規登録">
+        </form>
     </body>
 </html>
