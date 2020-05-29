@@ -34,6 +34,7 @@ body {
     position: absolute;
     top: 400px;
     left: 20px;
+    color: #1f0f83;
 }
 
 .br::before {

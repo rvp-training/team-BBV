@@ -52,11 +52,8 @@
         </div>
         <div id="update-right">
             <p>プロフィール写真</p>
-            <img id="profile" src="ここにアイコン画像GET">
-            <form method="post" enctype="multipart/form-data">
-                画像ファイル<input type="file" name="pic">
-                <br>
-                <input type="submit" name="botan" value="send">
+            <form enctype="multipart/form-data" method="post">
+                <input type="file" name="userfile[]" accept="image/*" multiple>
                 </form>
         </div>
             <input id="button" type="submit" value="変更を保存" />

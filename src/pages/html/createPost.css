@@ -1,0 +1,152 @@
+body {
+    background-color:#f7f6f4;
+}
+
+#sidebar {
+    position: relative;
+    position: fixed;
+    width: 110px;
+    height: 1080px; 
+    float: left;
+    background-color: #1f0f83;
+    color: #efa003;
+    text-align: center;
+}
+
+#sidebar-title {
+    margin-top: 30px;
+    padding: 20px 10px;
+}
+
+.workspace{
+    font-size: small;
+    border-top: 2px solid #efa003;
+    border-bottom: 2px solid #efa003;
+}
+
+#sidebar-body { 
+    padding: 0px  ; 
+}
+
+
+.logout {
+    position: absolute;
+    left: 10px;
+    bottom: 600px;
+}
+
+.logout button {
+    color: #1f0f83;
+}
+
+.createpost button {
+    background-color: #f9f1b5;
+    border-radius: 50%;
+    padding: 15px;
+    position: absolute;
+}
+
+.createpost {
+    position: absolute;
+    left: 10px;
+    bottom: 550px;
+}
+
+.side-botton {
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0px;
+    padding: 30px 190px;
+    color: #1f0f83;
+}
+
+#create {
+    margin-left: 170px;
+}
+
+#title {
+    font-size: 18px;
+    width: 750px;
+    height: 55px;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+
+.img-delete {
+    position: relative;
+    width: 100%;
+}
+
+#images {
+    float: left;
+}
+
+.image {
+    width:200px;
+}
+
+.fa-window-close {
+    position: absolute;
+    top: 0px;
+    background-color: #f9f1b5;
+}
+
+#workspace-radio {
+    clear: both;
+}
+
+#workspace-radio p {
+    float: left;
+}
+
+.radio-inline__input {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+}
+
+.radio-inline__label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 18px;
+    border-radius: 5px;
+    transition: all .2s;
+}
+
+.radio-inline__input:checked + .radio-inline__label {
+    background: #ffe269;
+    color: #1f0f83;
+    text-shadow: 0 0 1px rgba(0,0,0,.7);
+}
+
+.radio-inline__input:focus + .radio-inline__label {
+    outline-color: #1f0f83;
+    outline-offset: -2px;
+    outline-style: auto;
+    outline-width: 5px;
+}
+
+#comment {
+    margin-left: 140px;
+    bottom: 5px;
+    clear: both;
+}
+
+#comment li {
+    list-style: none;
+    float: left;
+}
+
+#comment textarea {
+    width: 900px;
+    height: 200px;
+}
+
+#comment button {
+    width: 80px;
+    height: 80px;
+}
