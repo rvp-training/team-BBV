@@ -36,11 +36,24 @@ body {
     bottom: 600px;
 }
 
-.crestepost {
+.createpost {
     position: absolute;
     left: 10px;
     bottom: 550px;
 }
+
+
+.logout button {
+    color: #1f0f83;
+}
+
+.createpost button {
+    background-color: #f9f1b5;
+    border-radius: 50%;
+    padding: 15px;
+    position: absolute;
+}
+
 
 #pagename{
     font-size: 24px;
