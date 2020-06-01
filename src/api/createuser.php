@@ -1,6 +1,6 @@
 <?php
 //データベースへ接続
-include 'setting(pdo).php';
+include 'setting.php';
 
 //メールアドレスの重複をチェック
 $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
