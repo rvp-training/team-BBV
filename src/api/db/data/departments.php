@@ -1,6 +1,6 @@
 <?php
 
-include '../../setting.php';
+include '../../(setting).php';
 
 $sql = "INSERT INTO departments (name)
 VALUES

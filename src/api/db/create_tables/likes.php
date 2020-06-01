@@ -1,6 +1,6 @@
 <?php
 
-include '../../setting.php';
+include '../../(setting).php';
 
 $sql = "CREATE TABLE likes (
   id serial NOT NULL,

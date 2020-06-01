@@ -1,6 +1,6 @@
 <?php
 
-include '../../setting.php';
+include '../../(setting).php';
 
 $sql = "CREATE TABLE comments (
   id serial NOT NULL,

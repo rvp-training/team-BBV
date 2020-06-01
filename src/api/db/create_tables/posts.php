@@ -1,6 +1,6 @@
 <?php
 
-include '../../setting.php';
+include '../../(setting).php';
 
 $sql = "CREATE TABLE posts (
   id serial NOT NULL,
