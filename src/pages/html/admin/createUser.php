@@ -1,4 +1,13 @@
-<?php // require '../../../../api/createUser.php'; ?>
+<?php  
+include '../../../api/setting(pdo).php';
+
+// $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
+// $user->execute(array($_POST['email'] . 'rvp.co.jp'));
+// $record = $user->fetch();
+// if($record['cnt'] > 0){
+//       $error['email'] = 'duplicate';
+// }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +34,7 @@
         </div>
 
         <!--コンテンツ-->
-        <form action="api/creteUser.php" id="create" method="post">
+        <form action="../../../../api/createUser.php" id="create" method="post">
             <h1>- 新規ユーザー登録 -</h1>
             <ul id="create-list">
                 <li>
@@ -45,14 +54,14 @@
                 </li>
                 <li>
                     <p>Email</p>
-                    <input type="email" name="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
+                    <input type="text" name="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
                     <?php if($error['email'] === 'duplicate'): ?>
 						<p class="error">*すでに登録されているメールアドレスです</p>
 					<?php endif; ?>
                 </li>
                 <li>
                     <p>パスワード  <span>(半角英数字6字)</span></p>
-                    <input type="password" name="password" pattern="[A-Za-z]{6}" maxlength="6" >
+                    <input type="password" name="password" pattern="[0-9A-Za-z]{6}" maxlength="6" >
                 </li>
             </ul>
             <input id="button" type="submit" value="新規登録">
