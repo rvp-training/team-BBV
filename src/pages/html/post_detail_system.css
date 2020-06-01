@@ -25,6 +25,10 @@ body {
     border-bottom: 2px solid #efa003;
 }
 
+.system {
+    background-color: #f9f1b5;
+}
+
 #sidebar-body {     
     padding: 0px  ; 
 }
