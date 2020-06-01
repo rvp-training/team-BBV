@@ -107,8 +107,6 @@ body {
 
 }
 
-#post-text {
-}
 
 #comment {
     position: fixed;
@@ -123,14 +121,17 @@ body {
 }
 
 #comment textarea {
+    font-size: 18px;
     width: 900px;
     height: 80px;
 }
 
-#comment button {
+#send {
     width: 80px;
     height: 80px;
+    opacity: 0.3;
 }
+
 
 /*ここから吹き出し作成*/
 #hover {
