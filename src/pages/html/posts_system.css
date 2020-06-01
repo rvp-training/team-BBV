@@ -79,11 +79,11 @@ h1{
 
 #pictures{
     margin-left: 130px;
-    width: 2000px;
+ 
 }
 
 div.poster-pic{
-    margin: 30px 80px 200px 70px;
+    margin: 30px 50px 200px 70px;
     float: left;
     position: relative;
 } 
@@ -95,11 +95,13 @@ div.poster-pic{
 
 div.post-head{
     display: flex;
+    position:relative;
+    z-index: 1;
 }
 .poster{
     width: 120px;  
     height: 50px;
-    margin-right: 70px;
+    margin-right: 100px;
 }
 
 .poster1{
@@ -129,7 +131,7 @@ div.post-head{
 
 .top-position{
     position:absolute;
-    top:80px;
+    top:65px;
     z-index: 1;
 }
 
@@ -141,7 +143,6 @@ div.post-head{
 .top{
     width: 350px;
     height: 250px;
-    z-index: 1;
 }
 
 p.poster-info {

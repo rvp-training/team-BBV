@@ -1,3 +1,4 @@
+<?php // require '../../../../api/createUser.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +25,7 @@
         </div>
 
         <!--コンテンツ-->
-        <form action="api/creteuser.php" id="create" method="post">
+        <form action="api/creteUser.php" id="create" method="post">
             <h1>- 新規ユーザー登録 -</h1>
             <ul id="create-list">
                 <li>
@@ -45,6 +46,9 @@
                 <li>
                     <p>Email</p>
                     <input type="email" name="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
+                    <?php if($error['email'] === 'duplicate'): ?>
+						<p class="error">*すでに登録されているメールアドレスです</p>
+					<?php endif; ?>
                 </li>
                 <li>
                     <p>パスワード  <span>(半角英数字6字)</span></p>
