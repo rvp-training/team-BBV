@@ -136,6 +136,7 @@ div.post-head{
 }
 
 .poster-info-position{
+    
     position:relative;
     z-index: 2;
 }

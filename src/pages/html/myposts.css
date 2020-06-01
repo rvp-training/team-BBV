@@ -24,6 +24,20 @@ body {
     border-bottom: 2px solid #efa003;
 }
 
+
+.side-botton {
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+}
+
+br::before {
+	content: "\A" ;
+	white-space: pre ;
+}
+
+
+
 #sidebar-body { 
     
     padding: 0px  ; 
@@ -55,45 +69,79 @@ body {
 }
 
 
-#pagename{
+h1{
     font-size: 24px;
     margin: 0px;
     padding: 30px 190px;
     color: #1f0f83;
 }
 
-.user-info{
+h4{
+   
+    margin: 0px;
+    padding-left: 230px;
+    color: #1f0f83;
+}
+
+.edit{
     text-align: right;
-    margin-right: 200px;
+    border: none;
+    color: #1f0f83;
 }
 
-.picture{
-    width: 2000px;
+
+#pictures{
+    margin-left: 130px;
+ 
 }
 
-ul{
-    margin: 50px 100px;
-	float: left;
-	list-style: none;
+div.poster-pic{
+    margin: 30px 100px 300px 70px;
+    float: left;
+    position: relative;
 } 
 
-.many{
-    text-align: right;
+.img{
+    width: 50px;
+    height:50px;
 }
+
+div.post-head{
+    display: flex;
+    position:relative;
+    z-index: 1;
+}
+.poster{
+    width: 120px;  
+    height: 50px;
+    margin-right: 100px;
+}
+
+
+.poster2{
+    font-size: 13.965px;
+    text-overflow: ellipsis; 
+    white-space: nowrap;  
+    overflow: hidden;  
+    padding:0px;
+    margin:0px;
+}
+
+.many{
+    width:50px;
+    height:50px;
+    text-align: right;
+
+}
+
+.top-position{
+    position:absolute;
+    top:65px;
+    z-index: 1;
+}
+
 
 .top{
-    width: 200px;
-    height: 200px;
-}
-
-
-.side-botton {
-    border-radius: 8px;
-    width: 80px;
-    height: 50px;
-}
-
-br::before {
-	content: "\A" ;
-	white-space: pre ;
+    width: 350px;
+    height: 250px;
 }
