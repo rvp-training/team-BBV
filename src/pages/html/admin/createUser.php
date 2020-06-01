@@ -1,12 +1,27 @@
-<?php  
-include '../../../api/setting(pdo).php';
+<?php 
+session_start();
+include '../../../api/setting.php';
 
-// $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
-// $user->execute(array($_POST['email'] . 'rvp.co.jp'));
-// $record = $user->fetch();
-// if($record['cnt'] > 0){
-//       $error['email'] = 'duplicate';
-// }
+//emailの重複をチェック
+if(!empty($_POST)){
+    $check = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
+    $email = $_POST['email'] . '@rvp.co.jp';
+    $check->execute(array($email));
+    $record = $check->fetch();
+    if($record['cnt'] > 0){
+        $error['email'] = 'duplicate';
+    }
+    if(empty($error)){
+        // 重複がなければ入力内容をセッションに保存し、
+        // api/createUserにリダイレクト
+		$_SESSION['join'] = $_POST;
+		header('Location: ../../../../api/createUser.php');
+		exit();
+	}
+}
+if($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])){
+	$_POST = $_SESSION['join'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,7 +49,7 @@ include '../../../api/setting(pdo).php';
         </div>
 
         <!--コンテンツ-->
-        <form action="../../../../api/createUser.php" id="create" method="post">
+        <form action="" id="create" method="post">
             <h1>- 新規ユーザー登録 -</h1>
             <ul id="create-list">
                 <li>
@@ -55,8 +70,9 @@ include '../../../api/setting(pdo).php';
                 <li>
                     <p>Email</p>
                     <input type="text" name="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
+                    <!-- emailが重複していた場合のエラー文 -->
                     <?php if($error['email'] === 'duplicate'): ?>
-						<p class="error">*すでに登録されているメールアドレスです</p>
+						<p style="color: red;">*すでに登録されているメールアドレスです</p>
 					<?php endif; ?>
                 </li>
                 <li>

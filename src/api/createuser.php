@@ -1,25 +1,25 @@
 <?php
-//データベースへ接続
-include 'setting(pdo).php';
+session_start();
+// データベースへ接続
+include 'setting.php';
 
-//メールアドレスの重複をチェック
-// $user = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
-// $user->execute(array($_POST['email'] . 'rvp.co.jp'));
-// $record = $user->fetch();
-// if($record['cnt'] > 0){
-//   $error['email'] = 'duplicate';
-//   return false;
-// }else{
-  // 重複がなければ登録する
-  $stmt = $db->prepare('INSERT INTO users SET name=?, department_id=?, email=?, password=?');
-  $stmt->execute(array(
-    $_POST['name'],
-    $_POST['department_id'],
-    $_POST['email'] . 'rvp.co.jp',
-    sha1($_POST['password'])
-  ));
-  header('Location: ../pages/html/admin/getUsers.html');
-  exit();
+//渡ってきたセッションの値を変数に代入
+$name = $_SESSION['join']['name'];
+$department = $_SESSION['join']['department_id'];
+$email = $_SESSION['join']['email'] . '@rvp.co.jp';
+$password = $_SESSION['join']['password'];
 
-// }
+// 登録処理
+$stmt = $db->prepare('INSERT INTO users(name, department_id, email, password) VALUES (?, ?, ?, ?)');
+$stmt->bindValue(1, $name);
+$stmt->bindValue(2, $department, PDO::PARAM_INT);
+$stmt->bindValue(3, $email);
+$stmt->bindValue(4, sha1($password));
+$stmt->execute();
+
+unset($_SESSION['join']);
+// 登録後ユーザー一覧ページにリダイレクト
+header('Location: ../pages/html/admin/getUsers.html');
+exit();
+
 ?>
