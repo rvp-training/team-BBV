@@ -6,7 +6,8 @@
     <title>投稿詳細（システム関連）</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="post_detail_system.css">
-    <scpipt type></scpipt>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <scpipt src="/js/post_detail_system.js"></scpipt>
 </head>
 
 <body>
@@ -37,9 +38,12 @@
      <div id="contents">
         <ul id="post-info">
             <li id="postuser">"投稿者名をGET"</li>
-            <li><img id="postuser-icon" src="投稿者のアイコンをGET"></li>
+            <div id="hover">    
+                <li><img id="postuser-icon" src="投稿者のアイコンをGET"></li>
+                <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
+            </div>
             <li id="post-date">"投稿日時をGET"</li>
-        </ul>        
+        </ul> 
 
         <div id="post">
             <p id="title">"タイトルをGET"</p>
@@ -57,7 +61,8 @@
                     <!--jqueryでプロゲートのアコーディオンの書き方でクラスを挿入?-->
                     <input type="submit" name="botton" value="▶">
                 </div>
-            <p id="post-text">"投稿文をGET"</p> 
+                <p id="post-text">"投稿文をGET"</p> 
+
         </div>
     </div>
     <div id="comment">

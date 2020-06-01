@@ -5,6 +5,7 @@ body {
 #sidebar {
     position: relative;
     position: fixed;
+    z-index: 10;
     width: 110px;
     height: 1080px; 
     float: left;
@@ -24,8 +25,7 @@ body {
     border-bottom: 2px solid #efa003;
 }
 
-#sidebar-body { 
-    
+#sidebar-body {     
     padding: 0px  ; 
 }
 
@@ -64,6 +64,7 @@ body {
 
 #contents {
     margin-left: 170px;
+    position: relative;
 }
 
 #contents ul {
@@ -84,14 +85,14 @@ body {
 }
 
 #postuser-info {
-    position: relative;
     padding: 0px;
 }
 
+
 #title {
     position: absolute;
-    left: 300px;
-    top: 40px;
+    left: 130px;
+    top: 15px;
     font-size: 18px;
 }
 
@@ -99,10 +100,15 @@ body {
     margin-left: 40px;
     width: 675px;
     height: 450px;
+
+}
+
+#post-text {
 }
 
 #comment {
     position: fixed;
+    z-index: 10;
     margin-left: 140px;
     bottom: 5px;
 }
@@ -121,3 +127,33 @@ body {
     width: 80px;
     height: 80px;
 }
+
+/*ここから吹き出し作成*/
+#hover {
+    position: relative;
+}
+
+#hover:hover .fukidashi{
+    display: inline;
+}
+
+.fukidashi {
+    position   : absolute;                /* 親要素を基準 */
+    display: none;                        /* 要素を非表示 */
+    padding: 2px;                         /* テキストの前後の余白 */
+    background-color: #f9f1b5;       /* 背景色（透明度） */
+    max-width: 300px;                          /* 吹き出し全体の幅 */
+    left : 15px;                           /* 表示位置 */
+    top : 80px;                           /* 表示位置 */
+    margin-top : 12px;                    /* 表示位置 */
+    font-size: 80%;                       /* 文字サイズ */
+  }
+  .fukidashi:after{
+    border-bottom: 12px solid  #f9f1b5; /* 吹き出し口の高さ・色 */
+    border-left: 10px solid transparent;    /* 吹き出し口の幅１／２ */
+    border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
+    top: -12px;                             /* 吹き出し口の位置調整 */
+    left : 5%;                              /* 吹き出し口の横位置 */
+    content: "";                       /* コンテンツの挿入 */
+    position: absolute;                /* 親要素を基準 */
+  }
