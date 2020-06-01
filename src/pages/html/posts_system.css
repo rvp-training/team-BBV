@@ -32,6 +32,10 @@ body {
     height: 50px;
 }
 
+.system{
+    background-color: #f9f1b5;
+}
+
 br::before {
 	content: "\A" ;
 	white-space: pre ;
