@@ -5,6 +5,7 @@ body {
 #sidebar {
     position: relative;
     position: fixed;
+    z-index: 10;
     width: 110px;
     height: 1080px; 
     float: left;
@@ -83,9 +84,9 @@ h1{
 }
 
 div.poster-pic{
-    margin: 30px 50px 200px 70px;
+    margin: 30px 10px 100px 70px;
     float: left;
-    position: relative;
+    position: relative; 
 } 
 
 .img{
@@ -129,60 +130,44 @@ div.post-head{
 
 }
 
-.top-position{
+.fukidashi{
+
     position:absolute;
     top:65px;
-    z-index: 1;
-}
-
-.poster-info-position{
-    position:relative;
     z-index: 2;
 }
 
 .top{
+
     width: 350px;
     height: 250px;
 }
 
-p.poster-info {
+#hover {
     position: relative;
-    display: inline-block;
-    margin: 1.5em 0;
-    padding: 7px 10px;
-    min-width: 120px;
-    max-width: 100%;
-    color: #555;
-    font-size: 16px;
-    background:  #ffe269;
-    border: solid 3px #555;
-    box-sizing: border-box;
-    z-index: 2;
+}
+
+#hover:hover .fukidashi{
+    display: inline;
+}
+
+.fukidashi {
+    position   : absolute;                /* 親要素を基準 */
+    display: none;                        /* 要素を非表示 */
+    padding: 2px;                         /* テキストの前後の余白 */
+    background-color: #f9f1b5;          /* 背景色（透明度） */
+    width: 300px;                     /* 吹き出し全体の幅 */
+    left : 15px;                          /* 表示位置 */
+    top : 80px;                           /* 表示位置 */
+    margin-top : 12px;                    /* 表示位置 */
+    font-size: 80%;                       /* 文字サイズ */
   }
-      
-p.poster-info:before {
-    content: "";
-    position: absolute;
-    top: -24px;
-    left: 10%;
-    margin-left: -15px;
-    border: 12px solid transparent;
-    border-bottom: 12px solid #ffe269;
-    z-index: 3;
+  .fukidashi:after{
+    border-bottom: 12px solid  #f9f1b5; /* 吹き出し口の高さ・色 */
+    border-left: 10px solid transparent;    /* 吹き出し口の幅１／２ */
+    border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
+    top: -12px;                             /* 吹き出し口の位置調整 */
+    left : 5%;                              /* 吹き出し口の横位置 */
+    content: "";                       /* コンテンツの挿入 */
+    position: absolute;                /* 親要素を基準 */
   }
-      
-p.poster-info:after {
-    content: "";
-    position: absolute;
-    top: -30px;
-    left: 10%;
-    margin-left: -17px;
-    border: 14px solid transparent;
-    border-bottom: 14px solid #555;
-    z-index: 2;
-    }
-      
-p.poster-info  {
-    margin: 0;
-    padding: 0;
-      }
