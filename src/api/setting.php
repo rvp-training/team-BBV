@@ -6,6 +6,4 @@ try {
   echo 'DB接続エラー：' . $e->getMessage();
 }
 
-//header('Content-Type: text/json; charset=UTF-8');
-
 ?>
