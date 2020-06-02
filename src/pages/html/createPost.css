@@ -106,7 +106,7 @@ h1 {
     background-color: #f9f1b5;
 }
 
-#create form {
+#file {
     clear: both;
 }
 
@@ -126,7 +126,6 @@ h1 {
 .radio-inline__label {
     display: inline-block;
     padding: 0.5rem 1rem;
-    margin-right: 18px;
     border-radius: 5px;
     transition: all .2s;
 }
@@ -145,7 +144,6 @@ h1 {
 }
 
 #comment {
-    margin-left: 140px;
     bottom: 5px;
     clear: both;
 }
@@ -159,6 +157,7 @@ h1 {
     font-size: 18px;
     width: 900px;
     height: 200px;
+    
 }
 
 #send {
