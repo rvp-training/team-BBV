@@ -1,5 +1,5 @@
 <?php
-include '../../setting.php';
+include '../../(setting).php';
 
 $sql = "CREATE TABLE departments (
   id serial NOT NULL,

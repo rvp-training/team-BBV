@@ -2,10 +2,10 @@
 
 include("setting.php");
 
-$sql = "SELECT id, name, deparment_id, email, password, departments.name as department
-        FROM departments
-        LEFT JOIN users
-        ON users.department_id = departments.id;";
+$sql = "SELECT users.id as user_id, users.name as user_name, email, password, departments.name as department_name
+        FROM users
+        LEFT JOIN departments
+        ON users.department_id = departments.id";
 //$sql = "SELECT * FROM users, departments WHERE users.department_id = departments.id;";
 //$sql = "SELECT id, name, deparment, email, password FROM　users;";
 $stmt = $db->query($sql);
@@ -13,9 +13,10 @@ $stmt = $db->query($sql);
 //$result = $stmt->fetch(PDO::FETCH_ASSOC)
 
 while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-    print($result['id']);
-    print($result['name']);
-    print($result['department']);
+//var_dump ($result);
+    print($result['user_id']);
+    print($result['user_name']);
+    print($result['department_name']);
     print($result['email']);
     print($result['password'] ."<br>");
 }

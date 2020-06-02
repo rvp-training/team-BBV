@@ -25,6 +25,10 @@ body {
     border-bottom: 2px solid #efa003;
 }
 
+.private {
+    background-color: #f9f1b5;
+}
+
 #sidebar-body { 
     padding: 0px  ; 
 }
@@ -116,7 +120,8 @@ body {
     height: 80px;
 }
 
-#comment button {
+#send {
+    opacity: 0.4;
     width: 80px;
     height: 80px;
 }
@@ -163,3 +168,38 @@ body {
     content: "";                       /* コンテンツの挿入 */
     position: absolute;                /* 親要素を基準 */
   }
+
+
+
+
+/* スライドショー作成 */
+.slides {
+    padding: 0;
+  }
+  
+  .display {
+    display: none;
+  }
+  
+  .active {
+    display: block;
+  }
+  
+  .display img {
+    width: 500px;
+    height: auto;
+  }
+  
+  .index-btn-wrapper {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .index-btn {
+    display: inline-block;
+    width: 40px;
+    padding: 6px 0;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  

@@ -6,8 +6,7 @@
     <title>投稿詳細（システム関連）</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="post_detail_system.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <scpipt src="/js/post_detail_system.js"></scpipt>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,8 +18,8 @@
         </div>
         <div id="sidebar-body">
             <p class="workspace">ワークスペース</p>
-            <p><button class="side-botton" onclick="location.href=ここにURLいれる">システム<span class="br">関連</span></button></p> 
-            <p><input class="side-botton" type="submit" name="botton" value="日常"></p> 
+            <p><button class="side-botton system" onclick="location.href=ここにURLいれる">システム<span class="br">関連</span></button></p> 
+            <p><input class="side-botton private" type="submit" name="botton" value="日常"></p> 
             <p class="logout">
                 <button type="submit" onclick="location.href=ここにURLいれる">
                     <i class="fas fa-sign-out-alt fa-2x"></i>
@@ -66,10 +65,11 @@
         </div>
     </div>
     <div id="comment">
-        <li><textarea name="comments" placeholder="コメントを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
-        <li><button type="submit" onclick="location.href=ここにURLいれる">
+        <li><textarea name="comments" val="" placeholder="コメントを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
+        <li><button id="send" disable type="submit" onclick="location.href=ここにURLいれる">
             <i class="fas fa-share fa-3x"></i></button>
         </li>
     </div>
+    <script src="post_detail_system.js"></script>
 </body>
 </html>

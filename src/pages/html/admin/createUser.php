@@ -1,4 +1,28 @@
-<?php // require '../../../../api/createUser.php'; ?>
+<?php 
+session_start();
+include '../../../api/setting.php';
+
+//emailの重複をチェック
+if(!empty($_POST)){
+    $check = $db->prepare('SELECT COUNT(*) AS cnt FROM users WHERE email=?');
+    $email = $_POST['email'] . '@rvp.co.jp';
+    $check->execute(array($email));
+    $record = $check->fetch();
+    if($record['cnt'] > 0){
+        $error['email'] = 'duplicate';
+    }
+    if(empty($error)){
+        // 重複がなければ入力内容をセッションに保存し、
+        // api/createUserにリダイレクト
+		$_SESSION['join'] = $_POST;
+		header('Location: ../../../../api/createUser.php');
+		exit();
+	}
+}
+if($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])){
+	$_POST = $_SESSION['join'];
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +49,7 @@
         </div>
 
         <!--コンテンツ-->
-        <form action="api/creteUser.php" id="create" method="post">
+        <form action="" id="create" method="post">
             <h1>- 新規ユーザー登録 -</h1>
             <ul id="create-list">
                 <li>
@@ -45,14 +69,15 @@
                 </li>
                 <li>
                     <p>Email</p>
-                    <input type="email" name="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
+                    <input type="text" name="email" pattern="^[0-9A-Za-z]+$"> @rvp.co.jp
+                    <!-- emailが重複していた場合のエラー文 -->
                     <?php if($error['email'] === 'duplicate'): ?>
-						<p class="error">*すでに登録されているメールアドレスです</p>
+						<p style="color: red;">*すでに登録されているメールアドレスです</p>
 					<?php endif; ?>
                 </li>
                 <li>
                     <p>パスワード  <span>(半角英数字6字)</span></p>
-                    <input type="password" name="password" pattern="[A-Za-z]{6}" maxlength="6" >
+                    <input type="password" name="password" pattern="[0-9A-Za-z]{6}" maxlength="6" >
                 </li>
             </ul>
             <input id="button" type="submit" value="新規登録">
