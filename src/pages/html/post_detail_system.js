@@ -11,15 +11,11 @@ $(function(){
  
         //処理分け
         if(count == 0){
-     
             //字を消して0文字となった場合。
-            $('#send').css('opacity', 0.4);
-            $('#semd').prop('disable', true);
+            $('#send').prop('disabled', true);
 
         } else {
- 
-            $('#send').css('opacity', 1);
-            $('#semd').prop('disable', falth);
+            $('#send').prop('disabled', false);
         }
     });
     //スライドショー

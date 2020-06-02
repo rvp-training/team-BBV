@@ -103,7 +103,10 @@ body {
     font-size: 18px;
 }
 
-
+#post-text {
+    margin-bottom: -100px;
+    padding-bottom: 100px;
+}
 
 #comment {
     position: fixed;
@@ -117,12 +120,12 @@ body {
 }
 
 #comment textarea {
+    font-size: 18px;
     width: 900px;
     height: 80px;
 }
 
 #send {
-    opacity: 0.4;
     width: 80px;
     height: 80px;
 }

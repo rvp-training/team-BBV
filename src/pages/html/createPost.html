@@ -6,6 +6,7 @@
         <title>新規投稿作成</title>
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="createPost.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <scpipt type></scpipt>
     </head>
 
@@ -36,7 +37,7 @@
         <!--コンテンツ-->
         <h1>- 投稿を作成 -</h1>
         <div id="create">
-            <input id="title" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)">
+            <input id="title" val="" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)">
               
             <div id="images"><!--これが画像1~10枚たちのdiv-->
 
@@ -60,7 +61,7 @@
             <div id="workspace-radio">
                 <p>投稿先ワークスペースを選択してください・・・　</p>
                 <input id="item-2" class="radio-inline__input" type="radio" name="accessible-radio" value="item-2"/>
-                <label class="radio-inline__label" for="item-2">
+                <label class="radio-inline__label" for="item-2" required>
                     システム関連
                 </label>
                 <input id="item-3" class="radio-inline__input" type="radio" name="accessible-radio" value="item-3"/>
@@ -74,10 +75,11 @@
 
         <div id="comment">
             <li><textarea name="comments" placeholder="テキストを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
-            <li><button type="submit" onclick="location.href=ここにURLいれる">
+            <li><button id="send" disabled type="submit" onclick="location.href=ここにURLいれる">
                 <i class="fas fa-share fa-3x"></i></button>
             </li>
         </div>
-            
+
+        <script src="createPost.js"></script>
     </body>
 </html>

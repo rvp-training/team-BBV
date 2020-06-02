@@ -156,11 +156,12 @@ h1 {
 }
 
 #comment textarea {
+    font-size: 18px;
     width: 900px;
     height: 200px;
 }
 
-#comment button {
+#send {
     width: 80px;
     height: 80px;
 }
