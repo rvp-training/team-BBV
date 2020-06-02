@@ -41,7 +41,7 @@ if($_REQUEST['action'] == 'rewrite' && isset($_SESSION['join'])){
                     <li><button class="sidebutton" onclick="ここにURLいれる！！">ユーザー<span class="br">一覧</span></button></li>
                     <li><button class="sidebutton" onclick="ここにURLいれる！！">新規登録</button></li>
                     <li>
-                        <button class="logout" type="submit" onclick="location.href=ここにURLいれる">
+                        <button class="logout" type="submit" onclick="location.href='../../../api/logout(admin).php'">
                             <i class="fas fa-sign-out-alt fa-2x"></i>
                         </button>
                     </li>
