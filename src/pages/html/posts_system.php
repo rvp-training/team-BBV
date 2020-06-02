@@ -1,3 +1,7 @@
+<?php 
+session_start();
+echo $_SESSION['id'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +23,7 @@
         <p><button class="side-botton" style="background: #f9f1b5;" onclick="ここに遷移先の画面のURLいれる">システム<span class="br">関連</span></button></p> 
         <p><input class="side-botton"  type="submit" name="botton" value="日常"></p> 
         <p class="logout">
-            <button type="submit" onclick="lication.href=ここにURL">
+            <button type="submit" onclick="location.href='../../api/logout.php'">
              <i class="fas fa-sign-out-alt fa-2x"></i>
             </button>
         </p>
