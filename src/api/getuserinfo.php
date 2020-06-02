@@ -11,6 +11,7 @@ $stmt = $db->query($sql);
 
 //$result = $stmt->fetch(PDO::FETCH_ASSOC)
 
+/*
 while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
     print($result['user_name']);
     print($result['department_name']);
@@ -18,5 +19,5 @@ while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
     print($result['password']);
     print($result['image'] ."<br>");
 }
-
+*/
 ?>
