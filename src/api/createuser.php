@@ -1,6 +1,5 @@
 <?php
-session_start();
-// データベースへ接続
+//データベースへ接続
 include 'setting.php';
 
 //渡ってきたセッションの値を変数に代入
