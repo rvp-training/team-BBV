@@ -25,6 +25,11 @@ body {
     padding: 20px 10px;
 }
 
+#sidebar-title img {
+    width: 70px;
+    height: 70px;
+}
+
 .workspace{
     font-size: small;
     border-top: 2px solid #efa003;
@@ -129,8 +134,8 @@ select {
 
 #update-right {
     position: absolute;
-    left: 680px;
-    top: 150px;
+    left: 730px;
+    top: 120px;
 }
 
 .br::before {
@@ -141,4 +146,9 @@ select {
 #message {
     font-size: 14px;
     padding-left: 300px;
+}
+
+#preview {
+    width: 280px;
+    height: 280px;
 }

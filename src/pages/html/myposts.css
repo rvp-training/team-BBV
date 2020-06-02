@@ -19,12 +19,16 @@ body {
     padding: 20px 10px;
 }
 
+#sidebar-title img {
+    width: 70px;
+    height: 70px;
+}
+
 .workspace{
     font-size: small;
     border-top: 2px solid #efa003;
     border-bottom: 2px solid #efa003;
 }
-
 
 .side-botton {
     border-radius: 8px;
@@ -37,13 +41,10 @@ br::before {
 	white-space: pre ;
 }
 
-
-
 #sidebar-body { 
     
     padding: 0px  ; 
 }
-
 
 .logout {
     position: absolute;
