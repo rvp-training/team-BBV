@@ -12,13 +12,14 @@ $stmt = $db->query($sql);
 //var_dump ($stmt);
 //$result = $stmt->fetch(PDO::FETCH_ASSOC)
 
+
+/*
 while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-//var_dump ($result);
     print($result['user_id']);
     print($result['user_name']);
     print($result['department_name']);
     print($result['email']);
     print($result['password'] ."<br>");
 }
-
+*/
 ?>

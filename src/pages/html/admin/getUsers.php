@@ -1,3 +1,7 @@
+<?php
+include ("../../../api/getusers.php")
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,10 +32,19 @@
             <h1>- ユーザー一覧 -</h1>
             <table border="1">
                 <tr>
-                    <th>ID</th><th>ユーザー名</th><th>所属部署</th><th>Email</th><th>パスワード</th> <th></th>
+                    <th>ID</th><th>ユーザー名</th><th>所属部署</th><th>Email</th><th>パスワード</th> <th>編集・削除</th>
                 </tr>
+
+                <?php while($result = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
                 <tr>
-                    <td>"IDなどGETしたものを入れていく！かつ、人数分だけｔｒをつくるようにコード"</td><td></td><td></td><td></td><td></td><td><a href="">編集・削除</a></td>
+                <td><?php print($result['user_id']); ?></td>
+                <td><?php print($result['user_name']); ?></td>
+                <td><?php print($result['department_name']); ?></td>
+                <td><?php print($result['email']); ?></td>
+                <td><?php print($result['password']); ?></td>
+                <td><a href="">編集・削除</a></td>
                 </tr>
+                <?php endwhile; ?>
+
             </table>
 
