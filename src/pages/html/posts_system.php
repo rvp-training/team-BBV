@@ -1,6 +1,11 @@
 <?php 
 session_start();
-echo $_SESSION['id'];
+
+// ログインしていなければ一般ユーザー用ログインページにリダイレクト
+if (!isset($_SESSION['id'])) {
+    header('Location: login.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +20,8 @@ echo $_SESSION['id'];
     <!--一般ユーザーサイドバー-->
 <div id="sidebar">
     <div id="sidebar-title">
-        <img src="ユーザーのプロフィール画像">
+        <!-- パラメータにログイン中ユーザーIDをわたす -->
+        <a href="myposts.php?id=<?php print($_SESSION['id']) ?>"><img src="ユーザーのプロフィール画像"></a>
         <p>ログイン中のユーザー名</p>
     </div>
     <div id="sidebar-body">

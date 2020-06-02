@@ -1,3 +1,21 @@
+<?php
+require '../../api/setting.php';
+
+// パラメータで送られてきたidを取得して変数に代入
+$id = $_REQUEST['id'];
+if (!is_numeric($id) || $id <= 0) {
+  print('1以上の数字で指定してください');
+  exit();
+}
+
+var_dump($id);
+
+// $memos = $db->prepare('SELECT * FROM memos WHERE id=?');
+// $memos->execute(array($id));
+// $memo = $memos->fetch();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>

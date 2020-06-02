@@ -4,10 +4,8 @@ include '../../api/setting.php';
 
 // デバッグ用記述
 if (isset($_SESSION['id'])) {
-    print($_SESSION['id']);
-} else {
-    print("セッションは空です");
-}
+    var_dump($_SESSION['id']);
+} 
 
 // formが送信されたとき
 if(!empty($_POST)){
