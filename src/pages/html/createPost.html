@@ -20,14 +20,14 @@
             <div id="sidebar-body">
                 <p class="workspace">ワークスペース</p>
                 <p><button class="side-botton" onclick="location.href=ここにURLいれる！！">システム<span class="br">関連</span></button></p> 
-                <p><input class="side-botton" type="submit" name="botton" value="日常"></p> 
+                <p><button class="side-botton" onclick="location.href=ここにURLいれる！！">日常</button></p> 
                 <p class="logout">
-                    <button type="submit" onclick="location.href=ここにURLいれる">
+                    <button onclick="location.href=ここにURLいれる">
                         <i class="fas fa-sign-out-alt fa-2x"></i>
                     </button>
                 </p>
                 <p class="createpost">
-                    <button type="submit" onclick="location.href=ここにURLいれる">
+                    <button onclick="location.href=ここにURLいれる">
                         <i class="fas fa-camera fa-4x"></i>
                     </button>
                 </p>
@@ -36,8 +36,8 @@
 
         <!--コンテンツ-->
         <h1>- 投稿を作成 -</h1>
-        <div id="create">
-            <input id="title" val="" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)">
+        <form id="create" enctype="multipart/form-data" method="post">
+            <input id="title" val="" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)" required>
               
             <div id="images"><!--これが画像1~10枚たちのdiv-->
 
@@ -50,13 +50,8 @@
 
 
             </div>
-
-
-                <form enctype="multipart/form-data" method="post">
-                    <input type="file" name="userfile[]" accept="image/*" multiple>
-                    </form>
-            
-            
+               
+            <p id="file"><input type="file" name="userfile[]" accept="image/*" multiple></p>          
 
             <div id="workspace-radio">
                 <p>投稿先ワークスペースを選択してください・・・　</p>
@@ -68,17 +63,19 @@
                 <label class="radio-inline__label" for="item-3">
                     日常
                 </label>
-                
-
             </div>
-        </div>
 
-        <div id="comment">
-            <li><textarea name="comments" placeholder="テキストを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
-            <li><button id="send" disabled type="submit" onclick="location.href=ここにURLいれる">
-                <i class="fas fa-share fa-3x"></i></button>
-            </li>
-        </div>
+            <div id="comment">
+                <li><textarea name="comments" placeholder="テキストを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
+                <li><button id="send" type="submit" onclick="location.href=ここにURLいれる">
+                    <i class="fas fa-share fa-3x"></i></button>
+                </li>
+            </div>
+
+
+        </form>
+
+        
 
         <script src="createPost.js"></script>
     </body>
