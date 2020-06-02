@@ -22,4 +22,30 @@ $(function(){
             $('#semd').prop('disable', falth);
         }
     });
+    //スライドショー
+  $('.index-btn').click(function () {
+    $('.active').removeClass('active');
+    var clickedIndex = $('.index-btn').index($(this));
+    $('.display').eq(clickedIndex).addClass('active');
+  });
+
+  $('.move-go').click(function () {
+    $('.move1').hide();
+    $('.move2').show();
+    $('.move-go').hide();
+    $('.move-back').show();
+  });
+
+  $('.move-back').click(function () {
+    $('.move2').hide();
+    $('.move1').show();
+    $('.move-back').hide();
+    $('.move-go').show();
+  });
+
+  if ($('.index-btn').length <6){
+    $('.move-go').hide();
+  }
+
+
 });

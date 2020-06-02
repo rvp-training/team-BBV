@@ -19,6 +19,11 @@ body {
     padding: 20px 10px;
 }
 
+#sidebar-title img {
+    width: 70px;
+    height: 70px;
+}
+
 .workspace{
     font-size: small;
     border-top: 2px solid #efa003;
@@ -98,11 +103,7 @@ body {
     font-size: 18px;
 }
 
-.on {
-    margin-left: 40px;
-    width: 675px;
-    height: 450px;
-}
+
 
 #comment {
     position: fixed;
@@ -130,6 +131,7 @@ body {
     color: #1f0f83;
     float: left;
     padding: 10px;
+    margin-top: 20px;
     margin-right: 25px;
     border-radius: 10px;
 }
@@ -158,8 +160,8 @@ body {
     top : 80px;                           /* 表示位置 */
     margin-top : 12px;                    /* 表示位置 */
     font-size: 80%;                       /* 文字サイズ */
-  }
-  .fukidashi:after{
+}
+.fukidashi:after{
     border-bottom: 12px solid  #f9f1b5; /* 吹き出し口の高さ・色 */
     border-left: 10px solid transparent;    /* 吹き出し口の幅１／２ */
     border-right: 10px solid transparent;   /* 吹き出し口の幅１／２ */
@@ -167,7 +169,7 @@ body {
     left : 5%;                              /* 吹き出し口の横位置 */
     content: "";                       /* コンテンツの挿入 */
     position: absolute;                /* 親要素を基準 */
-  }
+}
 
 
 
@@ -175,31 +177,43 @@ body {
 /* スライドショー作成 */
 .slides {
     padding: 0;
-  }
+}
   
-  .display {
+.display {
     display: none;
-  }
+}
   
-  .active {
+.active {
     display: block;
-  }
   
-  .display img {
-    width: 500px;
-    height: auto;
-  }
+}
   
-  .index-btn-wrapper {
+.display img {
+    width: 900px;
+    height: 600px;
+  
+}
+  
+.index-btn-wrapper {
+    margin-left: 80px;
     font-size: 16px;
     margin-top: 20px;
-  }
+}
   
-  .index-btn {
+.index-btn {
     display: inline-block;
-    width: 40px;
+    width: 110px;
+    height: 80px; 
     padding: 6px 0;
-    margin: 0 5px;
+    margin: 0 10px;
     cursor: pointer;
-  }
+}
+
+.move-back{
+      display: none;
+}
+
   
+.move2{
+    display: none;
+}
