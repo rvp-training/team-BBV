@@ -6,6 +6,14 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
 
+include '../../api/getuserinfo.php';
+
+$obj = new User();
+$userInfo = $obj->getUserInfo($_SESSION['id']);
+
+var_dump($userInfo);
+
+
 ?>
 <!DOCTYPE html>
 <html>
