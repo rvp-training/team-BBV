@@ -6,13 +6,10 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
 
+// ログイン中ユーザの情報を変数に代入
 include '../../api/getuserinfo.php';
-
 $obj = new User();
-$userInfo = $obj->getUserInfo($_SESSION['id']);
-
-var_dump($userInfo);
-
+$user = $obj->getUserInfo($_SESSION['id']);
 
 ?>
 <!DOCTYPE html>
@@ -26,28 +23,31 @@ var_dump($userInfo);
 <body>
     
     <!--一般ユーザーサイドバー-->
-<div id="sidebar">
-    <div id="sidebar-title">
-        <!-- パラメータにログイン中ユーザーIDをわたす -->
-        <a href="myposts.php?id=<?php print($_SESSION['id']) ?>"><img src="ユーザーのプロフィール画像"></a>
-        <p>ログイン中のユーザー名</p>
+    <div id="sidebar">
+        <div id="sidebar-title">
+            <a href="myposts.php?id=<?php print($_SESSION['id']) ?>"><img src="<?php if($user['image']): ?>
+                <?php print($user['image']); ?>
+            <?php else: ?>
+                <?php print('/images/user_default.jpeg'); ?>
+            <?php endif; ?>" width="50" height="50"></a>
+            <p><?php print($user['name']); ?></p>
+        </div>
+        <div id="sidebar-body">
+            <p class="workspace">ワークスペース</p>
+            <p><button class="side-botton" style="background: #f9f1b5;" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p> 
+            <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p> 
+            <p class="logout">
+                <button type="submit" onclick="location.href='../../api/logout.php'">
+                <i class="fas fa-sign-out-alt fa-2x"></i>
+                </button>
+            </p>
+            <p class="createpost">
+                <button type="submit" onclick="location.href='/pages/html/createPost.php'">
+                    <i class="fas fa-camera fa-4x"></i>
+                </button>
+            </p>
+        </div>
     </div>
-    <div id="sidebar-body">
-        <p class="workspace">ワークスペース</p>
-        <p><button class="side-botton" style="background: #f9f1b5;" onclick="ここに遷移先の画面のURLいれる">システム<span class="br">関連</span></button></p> 
-        <p><input class="side-botton"  type="submit" name="botton" value="日常"></p> 
-        <p class="logout">
-            <button type="submit" onclick="location.href='../../api/logout.php'">
-             <i class="fas fa-sign-out-alt fa-2x"></i>
-            </button>
-        </p>
-        <p class="createpost">
-            <button type="submit" onclick="lication.href=ここにURL">
-                <i class="fas fa-camera fa-4x"></i>
-            </button>
-        </p>
-    </div>
-</div>
 
     <h1>-システム関連投稿-</h1>
     <div id="pictures">

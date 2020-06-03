@@ -1,7 +1,17 @@
 <?php
-include ("../../../api/getusers.php")
-?>
+include '../../../api/getusers.php';
+session_start();
+include '../../../api/setting.php';
 
+//ログインしている、かつ管理者であるかチェック
+//一般ユーザ用ログインページにリダイレクト
+$sql =$db->prepare('SELECT * FROM users WHERE id=?');
+$sql->execute(array($_SESSION['id']));
+$result = $sql->fetch();
+if (!isset($_SESSION['id']) || !$result['is_admin']) {
+    header('Location: ../login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,8 +27,8 @@ include ("../../../api/getusers.php")
         <div id="sidebar">
             <div id="sidebar-title">管理者<span class="br">アカウント</span></div>
                 <ul id="sidebar-body">
-                    <li><button class="sidebutton" onclick="ここにURLいれる！！">ユーザー<span class="br">一覧</span></button></li>
-                    <li><button class="sidebutton" onclick="ここにURLいれる！！">新規登録</button></li>
+                    <li><button class="sidebutton" onclick="location.href='getUsers.php'">ユーザー<span class="br">一覧</span></button></li>
+                    <li><button class="sidebutton" onclick="location.href='createUser.php'">新規登録</button></li>
                     <li>
                         <button class="logout" type="submit" onclick="location.href='../../../api/logout(admin).php'">
                             <i class="fas fa-sign-out-alt fa-2x"></i>
@@ -42,6 +52,7 @@ include ("../../../api/getusers.php")
                 <td><?php print($result['department_name']); ?></td>
                 <td><?php print($result['email']); ?></td>
                 <td><?php print($result['password']); ?></td>
+                <!-- 以下の遷移先をupdate_admin.phpのパラメータにuser_idを渡したものにする -->
                 <td><a href="">編集・削除</a></td>
                 </tr>
                 <?php endwhile; ?>

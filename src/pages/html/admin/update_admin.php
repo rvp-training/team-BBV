@@ -1,3 +1,31 @@
+<?php 
+session_start();
+include '../../../api/setting.php';
+
+// ログインしている、かつ管理者であるかチェック
+// 一般ユーザ用ログインページにリダイレクト
+$sql =$db->prepare('SELECT * FROM users WHERE id=?');
+$sql->execute(array($_SESSION['id']));
+$result = $sql->fetch();
+if (!isset($_SESSION['id']) || !$result['is_admin']) {
+    header('Location: ../login.php');
+}
+
+// myposts.phpの５－９行目をコピーし、
+// パラメータを受け取る
+
+
+//初期値を入れる
+//受け取ったidを引数にして、getUserInfoを呼び出し値を取得
+//結果をｈｔｍｌの中に埋め込む
+
+
+//divタグをformに変更
+//formのアクションにAPIのupdateuser.phpを指定、メソッドも定義
+//updateuser.phpにformから受け取った値でDBの情報をupdateする処理を書く
+//更新後のリダイレクト先はユーザ一覧画面
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,8 +42,8 @@
         <div id="sidebar">
             <div id="sidebar-title">管理者<span class="br">アカウント</span></div>
                 <ul id="sidebar-body">
-                    <li><button class="sidebutton" onclick="ここにURLいれる！！">ユーザー<span class="br">一覧</span></button></li>
-                    <li><button class="sidebutton" onclick="ここにURLいれる！！">新規登録</button></li>
+                    <li><button class="sidebutton" onclick="location.href='getUsers.php'">ユーザー<span class="br">一覧</span></button></li>
+                    <li><button class="sidebutton" onclick="location.href='createUser.php'">新規登録</button></li>
                     <li>
                         <button class="logout" type="submit" onclick="location.href='../../../api/logout(admin).php'">
                             <i class="fas fa-sign-out-alt fa-2x"></i>
@@ -47,7 +75,7 @@
                 </li>
                 <li>
                     <p>パスワード  <span>(半角英数字6字)</span></p>
-                    <input id="pass" val="" type="password" pattern="[A-Za-z]{6}" maxlength="6">
+                    <input id="pass" val="" type="password" pattern="[0-9A-Za-z]{6}" maxlength="6">
                 </li>
             </ul>
             <input id="button" disabled type="submit" value="変更を保存" />

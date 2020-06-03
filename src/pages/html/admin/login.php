@@ -5,8 +5,6 @@ include '../../../api/setting.php';
 // デバッグ用記述
 if (isset($_SESSION['id'])) {
     print($_SESSION['id']);
-} else {
-    print("セッションは空です");
 }
 
 // formが送信されたとき
