@@ -29,13 +29,13 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 <?php print($user['image']); ?>
             <?php else: ?>
                 <?php print('/images/user_default.jpeg'); ?>
-            <?php endif; ?>" width="50" height="50"></a>
+            <?php endif; ?>" width="70" height="70"></a>
             <p><?php print($user['name']); ?></p>
         </div>
         <div id="sidebar-body">
             <p class="workspace">ワークスペース</p>
-            <p><button class="side-botton" style="background: #f9f1b5;" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p> 
-            <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p> 
+            <p><button class="side-botton" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p> 
+            <p><input class="side-botton" style="background: #f9f1b5;" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p> 
             <p class="logout">
                 <button type="submit" onclick="location.href='../../api/logout.php'">
                 <i class="fas fa-sign-out-alt fa-2x"></i>
