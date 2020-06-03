@@ -55,13 +55,13 @@ $user = $obj->getUserInfo($_SESSION['id']);
 
             <!--コンテンツ-->
             <h1>- 投稿を作成 -</h1>
-        <form id="create" enctype="multipart/form-data" method="post">
-            <input id="title" val="" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)" required>
+        <form id="create" enctype="multipart/form-data" method="post" action="../../api/createPost.php">
+            <input id="title" name="title" val="" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)" required>
               
             <div id="images"><!--これが画像1~10枚たちのdiv-->
 
                 <div class="img set-0">
-                    <input type="file" class="postImg input-0" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-0" accept="image/*">
                     <div class="preview image-0"> 
                         <p><img class="img-0"></p>
                         <i class="far fa-window-close delete-0"></i>
@@ -69,7 +69,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-1">
-                    <input type="file" class="postImg input-1" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-1" accept="image/*">
                     <div class="preview image-1"> 
                         <p><img class="img-1"></p>
                         <i class="far fa-window-close delete-1"></i>
@@ -77,7 +77,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-2">
-                    <input type="file" class="postImg input-2" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-2" accept="image/*">
                     <div class="preview image-2"> 
                         <p><img class="img-2"></p>
                         <i class="far fa-window-close delete-2"></i>
@@ -85,7 +85,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-3">
-                    <input type="file" class="postImg input-3" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-3" accept="image/*">
                     <div class="preview image-3"> 
                         <p><img class="img-3"></p>
                         <i class="far fa-window-close delete-3"></i>
@@ -93,7 +93,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-4">
-                    <input type="file" class="postImg input-4" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-4" accept="image/*">
                     <div class="preview image-4"> 
                         <p><img class="img-4"></p>
                         <i class="far fa-window-close delete-4"></i>
@@ -101,7 +101,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-5">
-                    <input type="file" class="postImg input-5" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-5" accept="image/*">
                     <div class="preview image-5"> 
                         <p><img class="img-5"></p>
                         <i class="far fa-window-close delete-5"></i>
@@ -109,7 +109,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-6">
-                    <input type="file" class="postImg input-6" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-6" accept="image/*">
                     <div class="preview image-6"> 
                         <p><img class="img-6"></p>
                         <i class="far fa-window-close delete-6"></i>
@@ -117,7 +117,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-7">
-                    <input type="file" class="postImg input-7" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-7" accept="image/*">
                     <div class="preview image-7"> 
                         <p><img class="img-7"></p>
                         <i class="far fa-window-close delete-7"></i>
@@ -125,7 +125,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-8">
-                    <input type="file" class="postImg input-8" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-8" accept="image/*">
                     <div class="preview image-8"> 
                         <p><img class="img-8"></p>
                         <i class="far fa-window-close delete-8"></i>
@@ -133,7 +133,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 </div>
 
                 <div class="img set-9">
-                    <input type="file" class="postImg input-9" accept="image/*">
+                    <input type="file" name="image[]" class="postImg input-9" accept="image/*">
                     <div class="preview image-9"> 
                         <p><img class="img-9"></p>
                         <i class="far fa-window-close delete-9"></i>
@@ -152,19 +152,19 @@ $user = $obj->getUserInfo($_SESSION['id']);
 
             <div id="workspace-radio">
                 <p>投稿先ワークスペースを選択してください・・・　</p>
-                <input id="item-2" class="radio-inline__input" type="radio" name="accessible-radio" value="item-2"/>
+                <input id="item-2" class="radio-inline__input" type="radio" name="workspace" value="1"/>
                 <label class="radio-inline__label" for="item-2" required>
                     システム関連
                 </label>
-                <input id="item-3" class="radio-inline__input" type="radio" name="accessible-radio" value="item-3"/>
+                <input id="item-3" class="radio-inline__input" type="radio" name="workspace" value="2"/>
                 <label class="radio-inline__label" for="item-3">
                     日常
                 </label>
             </div>
 
             <div id="comment">
-                <li><textarea name="comments" placeholder="テキストを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
-                <li><button id="send" type="submit" onclick="location.href=ここに送信先URLいれる">
+                <li><textarea name="text" placeholder="テキストを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
+                <li><button id="send" type="submit">
                     <i class="fas fa-share fa-3x"></i></button>
                 </li>
             </div>
