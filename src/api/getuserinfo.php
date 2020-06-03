@@ -11,14 +11,13 @@ class User{
     function getUserInfo($id){
 
         include("setting.php");
-        $sql = $db->prepare("SELECT u.name as name, d.name as department, introduction, password, image
+        $sql = $db->prepare("SELECT u.name as name, d.name as department, introduction, password, image, department_id
                 FROM users u
                 LEFT JOIN departments d
                 ON u.department_id = d.id
                 WHERE u.id=?");
         $sql->execute(array($id));
         $result = $sql->fetch();
-
         return $result;
     }
 }

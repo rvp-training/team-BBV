@@ -70,7 +70,7 @@ $_SESSION['selected'] = $id;
                 <li>
                     <p>所属部署</p>
                     <select name="department_id">
-                        <option value=" " selected><?php echo $userinfo['department']; ?></option>
+                        <option value="<?php echo $userinfo['department_id']; ?>" selected><?php echo $userinfo['department']; ?></option>
                         <option value="1">総務部</option>
                         <option value="2">経理部</option>
                         <option value="3">業務部</option>
