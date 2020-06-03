@@ -5,11 +5,12 @@ include("setting.php");
 $sql = "SELECT users.id as user_id, users.name as user_name, email, password, departments.name as department_name
         FROM users
         LEFT JOIN departments
-        ON users.department_id = departments.id";
+        ON users.department_id = departments.id
+        ORDER BY users.id";
 //$sql = "SELECT * FROM users, departments WHERE users.department_id = departments.id;";
 //$sql = "SELECT id, name, deparment, email, password FROM　users;";
 $stmt = $db->query($sql);
-//var_dump ($stmt);
+// var_dump ($stmt);
 //$result = $stmt->fetch(PDO::FETCH_ASSOC)
 
 
