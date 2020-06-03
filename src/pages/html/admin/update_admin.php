@@ -13,12 +13,18 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
 
 // myposts.phpの５－９行目をコピーし、
 // パラメータを受け取る
-
+$id = $_REQUEST['id'];
+if (!is_numeric($id) || $id <= 0) {
+  print('パラメータは1以上の数字で指定してください');
+  exit();
+}
 
 //初期値を入れる
 //受け取ったidを引数にして、getUserInfoを呼び出し値を取得
 //結果をｈｔｍｌの中に埋め込む
-
+include "../../../api/getuserinfo.php";
+$user = new User();
+$userinfo = $user->getUserInfo($id);
 
 //divタグをformに変更
 //formのアクションにAPIのupdateuser.phpを指定、メソッドも定義
@@ -53,17 +59,17 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
         </div>
 
         <!--コンテンツ-->
-        <div id="edit">
+        <form id="edit" action="../../../api/updateuser.php" method="post">
             <h1>- ユーザーの編集・削除 -</h1>
             <ul id="edit-list">
                 <li>
                     <p>ユーザー名  <span>(全角または半角2～20字)</span></p>
-                    <input id="name" val="" maxlength="20" minlength="2" value="初期値をGET">
+                    <input name="name" id="name" val="" maxlength="20" minlength="2" value="<?php echo $userinfo['name']; ?>">
                 </li>
                 <li>
                     <p>所属部署</p>
                     <select name="department_id">
-                        <option value="" selected>GET</option>
+                        <option value="" selected><?php echo $userinfo['department']; ?></option>
                         <option value="1">総務部</option>
                         <option value="2">経理部</option>
                         <option value="3">業務部</option>
@@ -75,12 +81,12 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
                 </li>
                 <li>
                     <p>パスワード  <span>(半角英数字6字)</span></p>
-                    <input id="pass" val="" type="password" pattern="[0-9A-Za-z]{6}" maxlength="6">
+                    <input name="password" id="pass" val="" type="password" pattern="[0-9A-Za-z]{6}" maxlength="6">
                 </li>
             </ul>
-            <input id="button" disabled type="submit" value="変更を保存" />
-            <a href="">このユーザーを削除しますか？</a>
-        </div>
+            <input id="button" disabled type="submit" value="変更を保存">
+            <a href="deleteUser.php">このユーザーを削除しますか？</a>
+        </form>
         <script src="update_admin.js"></script>
     </body>
 </html>

@@ -53,7 +53,7 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
                 <td><?php print($result['email']); ?></td>
                 <td><?php print($result['password']); ?></td>
                 <!-- 以下の遷移先をupdate_admin.phpのパラメータにuser_idを渡したものにする -->
-                <td><a href="">編集・削除</a></td>
+                <td><a href="update_admin.php?id=<?php print($result['user_id'])?>">編集・削除</a></td>
                 </tr>
                 <?php endwhile; ?>
 
