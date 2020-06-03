@@ -12,6 +12,7 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
     header('Location: ../login.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>

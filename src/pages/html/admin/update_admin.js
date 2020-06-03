@@ -23,7 +23,10 @@ $(function () {
         $('#button').prop('disabled', false);
       }
 
-
     });
-});
+
+    $('#button').click(function(){
+      window.location.href ='getUsers.php'
+    });
+  });
   
