@@ -14,7 +14,7 @@ if(!empty($_POST)){
         $login = $db->prepare('SELECT * FROM users WHERE email=? AND password=? AND is_deleted=false AND is_admin=false');
         $login->execute(array(
         $_POST['email'],
-        sha1($_POST['password'])
+        $_POST['password']
         ));
         //該当するレコードがあれば$userに代入
         $user = $login->fetch();
