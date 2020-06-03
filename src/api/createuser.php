@@ -1,4 +1,5 @@
 <?php
+session_start();
 //データベースへ接続
 include 'setting.php';
 
