@@ -29,7 +29,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
     <div id="sidebar">
         <div id="sidebar-title">
             <a href="myposts.php?id=<?php print($_SESSION['id']) ?>"><img src="<?php if($user['image']): ?>
-                <?php print($user['image']); ?>
+                <?php print('../../images/users/' . $user['image']); ?>
             <?php else: ?>
                 <?php print('/images/user_default.jpeg'); ?>
             <?php endif; ?>" width="50" height="50"></a>
