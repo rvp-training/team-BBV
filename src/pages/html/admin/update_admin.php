@@ -2,6 +2,7 @@
 session_start();
 include '../../../api/setting.php';
 
+
 // ログインしている、かつ管理者であるかチェック
 // 一般ユーザ用ログインページにリダイレクト
 $sql =$db->prepare('SELECT * FROM users WHERE id=?');
@@ -25,7 +26,7 @@ if (!is_numeric($id) || $id <= 0) {
 include "../../../api/getuserinfo.php";
 $user = new User();
 $userinfo = $user->getUserInfo($id);
-
+$_SESSION['selected'] = $id;
 //divタグをformに変更
 //formのアクションにAPIのupdateuser.phpを指定、メソッドも定義
 //updateuser.phpにformから受け取った値でDBの情報をupdateする処理を書く
@@ -69,7 +70,7 @@ $userinfo = $user->getUserInfo($id);
                 <li>
                     <p>所属部署</p>
                     <select name="department_id">
-                        <option value="" selected><?php echo $userinfo['department']; ?></option>
+                        <option value=" " selected><?php echo $userinfo['department']; ?></option>
                         <option value="1">総務部</option>
                         <option value="2">経理部</option>
                         <option value="3">業務部</option>

@@ -1,22 +1,22 @@
 <?php
+session_start();
+include('setting.php');
+//var_dump($_SESSION['selected']);
 
+$stmt = $db->prepare('UPDATE users 
+                        SET name = :name, department_id = :department_id, password = :password 
+                        WHERE id = :id');
 
-try {
+$result = $stmt->execute(array(':name' => $_POST['name'], ':department_id' => $_POST['department_id'], ':password' => $_POST['password'], ':id' => $_SESSION['selected']));
 
-    include('setting.php');
-    
-    $stmt = $db->prepare('UPDATE users 
-                            SET name = :name, department = :department, password = :password 
-                            WHERE id = :id');
+//var_dump($_POST);
 
-    $stmt->execute(array(':name' => $_PATCH['name'], ':department' => $_PATCH['department'], ':password' => $_PATCH['password']));
-
-    //echo "情報を更新しました。";
-
-} catch (Exception $e) {
-          echo 'エラーが発生しました。:' . $e->getMessage();
+if($result){
+    unset($_SESSION['selected']);
+    header("Location: ../pages/html/admin/getUsers.php");;
+}else{
+    echo "更新に失敗しました";
 }
-
 
 
 ?>
