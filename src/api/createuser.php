@@ -13,12 +13,12 @@ $stmt = $db->prepare('INSERT INTO users(name, department_id, email, password) VA
 $stmt->bindValue(1, $name);
 $stmt->bindValue(2, $department, PDO::PARAM_INT);
 $stmt->bindValue(3, $email);
-$stmt->bindValue(4, sha1($password));
+$stmt->bindValue(4, $password);
 $stmt->execute();
 
 unset($_SESSION['join']);
 // 登録後ユーザー一覧ページにリダイレクト
-header('Location: ../pages/html/admin/getUsers.html');
+header('Location: ../pages/html/admin/getUsers.php');
 exit();
 
 ?>

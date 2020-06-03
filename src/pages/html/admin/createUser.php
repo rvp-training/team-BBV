@@ -24,7 +24,7 @@ if(!empty($_POST)){
         // 重複がなければ入力内容をセッションに保存し、
         // api/createUserにリダイレクト
 		$_SESSION['join'] = $_POST;
-		header('Location: ../../../../api/createUser.php');
+		header('Location: ../../../api/createuser.php');
 		exit();
 	}
 }
