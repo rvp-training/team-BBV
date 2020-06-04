@@ -14,7 +14,7 @@ services:
     image: m5d215/php-fpm-postgres:7-stretch
     restart: unless-stopped
     volumes:
-      - ./src:/var/www/html:ro
+      - ./src:/var/www/html
 
   db:
     image: postgres:12-alpine

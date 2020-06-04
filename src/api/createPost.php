@@ -1,23 +1,36 @@
 <?php
 session_start();
+//データベースへ接続
+include 'setting.php';
 
 $userId = $_SESSION['id'];
 var_dump($_FILES);
+var_dump($_POST);
+var_dump($_SESSION);
 
-//配列だから繰り返し処理が必要
-// ["image"] => {
-//   ["name"] => {0..9},
-//   ["tmp_name"] =>{0..9}
-// }
+// 登録処理
+$stmt = $db->prepare('INSERT INTO posts(user_id, workspace_id, title, text, created_at) VALUES (?, ?, ?, ?, ?)');
+$stmt->bindValue(1, $userId);
+$stmt->bindValue(2, $_POST['workspace']);
+$stmt->bindValue(3, $_POST['title']);
+$stmt->bindValue(4, $_POST['text']);
+$stmt->bindValue(5, date("cZ"));
+$stmt->execute();
 
-//名前をつける
-// $image = date('YmdHis') . $_FILES['image']['name'];
-//保存したいディレクトリに移動
-// move_uploaded_file($_FILES['image']['tmp_name'], '../images/uploads/' . $image);
+$postId = $db->lastInsertId();
 
-// $image = date('YmdHis') . 
-// アップロード処理
-// tmp_name 一時的にアップロードされている場所
-// move_uploaded_file(今ある場所、移動先)
+foreach($_FILES['image']['tmp_name'] as $i => $tmp_name) {
+    if ($tmp_name === "") {
+        continue;
+    }
+
+    move_uploaded_file($tmp_name, "../images/uploads/".$postId."-".$i.".jpg");
+
+    // 画像登録
+    $stmt = $db->prepare('INSERT INTO images(post_id, image) VALUES (?, ?)');
+    $stmt->bindValue(1, $postId);
+    $stmt->bindValue(2, $postId."-".$i.".jpg");
+    $stmt->execute();
+}
 
 ?>
