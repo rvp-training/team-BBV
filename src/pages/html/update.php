@@ -1,15 +1,17 @@
 <?php
 session_start();
+include '../../api/setting.php';
 
 // ログインしていなければ一般ユーザー用ログインページにリダイレクト
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
 
+
 // ログイン中ユーザの情報を変数に代入
 include '../../api/getuserinfo.php';
 $obj = new User();
-$user = $obj->getUserInfo($_SESSION['id']);
+$userinfo = $obj->getUserInfo($_SESSION['id']);
 
 ?>
 
@@ -53,31 +55,33 @@ $user = $obj->getUserInfo($_SESSION['id']);
     </div>
 
         <!--コンテンツ-->
-        <div id="update-left">
+        <form id="update-bottom" action="../../api/updateuser.php" method="post">
+        <div id="update-left" method="post">
             <h1>- ユーザー情報設定 -</h1>
             <ul id="update-list">
                 <li>
                     <p class="item">ユーザー名※</p>
-                    <p class="get-item">”名前をGET”</p>
+                    <p class="get-item">”<?php echo $userinfo['name']; ?>”</p>
                 </li>
                 <li>
                     <p class="item">所属部署※</p>
-                    <p class="get-item">”所属部署をGET”</p>
+                    <p class="get-item">”<?php echo $userinfo['department']; ?>”</p>
                 </li>
                 <li>
                     <p class="item">ひとこと自己紹介　<span>(全角または半角50字以内)</span></p>
-                    <textarea id="hitokoto" value="" maxlength="50"></textarea>
+                    <textarea name="introduction" id="hitokoto" value="" maxlength="50"><?php echo $userinfo['introduction']; ?></textarea>
                 </li>
             </ul>
         </div>
-        <div id="update-right">
+        <div id="update-right" method="post">
             <p>プロフィール写真</p>
-            <input type="file" id="myImage" accept="image/*">
+            <input name="image" type="file" id="myImage" accept="image/*">
             <p><img id="preview"></p>
         </div>
+        
             <input id="button" type="submit" value="変更を保存" />
             <p id="message">※所属部署・氏名に変更が必要な方はシステム管理者までご連絡ください。</p>
-            
+        </form>
             <script src="update.js"></script>
         </body>
 </html>

@@ -60,7 +60,7 @@ $_SESSION['selected'] = $id;
         </div>
 
         <!--コンテンツ-->
-        <form id="edit" action="../../../api/updateuser.php" method="post">
+        <form id="edit" action="../../../api/updateuser_admin.php" method="post">
             <h1>- ユーザーの編集・削除 -</h1>
             <ul id="edit-list">
                 <li>

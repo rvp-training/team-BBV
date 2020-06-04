@@ -1,19 +1,18 @@
 <?php
 session_start();
 include('setting.php');
-//var_dump($_SESSION['selected']);
+
 
 $stmt = $db->prepare('UPDATE users 
-                        SET name = :name, department_id = :department_id, password = :password 
-                        WHERE id = :id');
+                        SET introduction = :introduction, image = :image 
+                        WHERE id = :id;');
 
-$result = $stmt->execute(array(':name' => $_POST['name'], ':department_id' => $_POST['department_id'], ':password' => $_POST['password'], ':id' => $_SESSION['selected']));
+$result = $stmt->execute(array(':introduction' => $_POST['introduction'], ':image' => $_POST['image'], ':id' => $_SESSION['id']));
 
-//var_dump($_POST);
 
 if($result){
-    unset($_SESSION['selected']);
-    header("Location: ../pages/html/admin/getUsers.php");;
+    unset($_SESSION['id']);
+    header("Location: ../pages/html/update.php");
 }else{
     echo "更新に失敗しました";
 }
