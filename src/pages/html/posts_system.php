@@ -11,6 +11,43 @@ include '../../api/getuserinfo.php';
 $obj = new User();
 $user = $obj->getUserInfo($_SESSION['id']);
 
+include '../../api/setting.php';
+
+$posts = array();
+
+$sql = '
+SELECT
+    p.id,
+    p.title,
+    p.created_at,
+    u.name AS username,
+    u.introduction,
+    u.image AS user_image_path,
+    d.name AS department,
+    i.image AS image_path
+FROM posts p
+INNER JOIN users u ON p.user_id = u.id
+INNER JOIN departments d ON u.department_id = d.id
+INNER JOIN images i ON p.id = i.post_id
+WHERE p.workspace_id = 1
+ORDER BY p.id
+';
+
+foreach ($db->query($sql) as $row) {
+    if (!array_key_exists($row['id'], $posts)) {
+        $posts[$row['id']] = array(
+            'id' => $row['id'],
+            'title' => $row['title'],
+            'created_at' => $row['created_at'],
+            'username' => $row['username'],
+            'introduction' => $row['introduction'],
+            'user_image_path' => $row['user_image_path'],
+            'department' => $row['department'],
+            'image_path' => array()
+        );
+    }
+    $posts[$row['id']]['image_path'][] = $row['image_path'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,160 +88,28 @@ $user = $obj->getUserInfo($_SESSION['id']);
 
     <h1>-システム関連投稿-</h1>
     <div id="pictures">
+        <?php foreach($posts as $post): ?>
         <div class="poster-pic">
             <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
+                <div id="hover">
+                    <img class="img" src= <?php print('../../images/users/' . $post['user_image_path']); ?> loading="lazy">
+                    <p class="fukidashi"><?php echo $post['department']; ?>：<br><?php echo $post['introduction']; ?></p>
+                </div> 
+                <div class="poster">
+                    <p class="poster1"><?php echo $post['username']; ?></p>
+                    <p class="poster2"><?php echo $post['title']; ?></p>
                 </div>
-                 <i class="far fa-clone fa-3x"></i>
+                <?php if(count($post['image_path'])>1):?>
+                <i class="far fa-clone fa-3x"></i>
+                <?php endif; ?>
             </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
+            <div class="top-position">
+                <a href="遷移先の画面のURL">
+                    <img class="top" src=<?php echo '/images/uploads/'.$post['image_path'][0]; ?> loading="lazy">
+                </a>
+            </div>
         </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div><div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-             <div id="hover">
-            <img class="img" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy">
-            <p class="fukidashi">所属部署："投稿者の所属部署をGET"<br>"ひとこと自己紹介をGET"</p>
-             </div> 
-            <div class="poster">
-                    <p class="poster1">投稿者名arfarvgaervbgaerb</p>
-                    <p class="poster2">投稿タイトル</p>
-                </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></div>
-        </div>
-        
- </div>
+        <?php endforeach; ?>
+    </div>
 </body>
 </html>
