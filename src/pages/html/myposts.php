@@ -18,7 +18,8 @@ include '../../api/getuserinfo.php';
 $obj = new User();
 $user = $obj->getUserInfo($_SESSION['id']);
 
-
+include '../../api/mock/getMyPosts.php';
+var_dump ($myposts);
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +45,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
         <div id="sidebar-body">
             <p class="workspace">ワークスペース</p>
             <p><button class="side-botton" style="background: #f9f1b5;" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p> 
-            <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p> 
+            <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_detail.php'" value="日常"></p> 
             <p class="logout">
                 <button type="submit" onclick="location.href='../../api/logout.php'">
                 <i class="fas fa-sign-out-alt fa-2x"></i>
@@ -61,76 +62,22 @@ $user = $obj->getUserInfo($_SESSION['id']);
     <h1 id="pagename">-マイページ-</h1>
     <h3 id="pagename-2">投稿履歴</h3>
     <p class="edit">
-    <button type="submit" onclick="lication.href=ここにURL">
+    <button type="submit" onclick="location.href='update.php?id=<?php print($_SESSION['id'])?>'">
         <i class="fas fa-cog fa-3x"></i>
     </button>
     </p>
     <div id="pictures">
+        <?php foreach($myposts as $mypost): ?>
         <div class="poster-pic">
             <div class="post-head">
                  <div class="poster">
-                    <p class="poster2">投稿タイトル</p>
+                    <p class="poster2"><?php echo $mypost["title"] ?></p>
                  </div>
                  <i class="far fa-clone fa-3x"></i>
             </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></p></div>
+            <div class="top-position"><a href="post_detail.php?id=<?php print($mypost['post_id'])?>"><img class="top" src="<?php echo $mypost["image_path"]?>" loading="lazy"></a></p></div>
         </div>
-        <div class="poster-pic">
-            <div class="post-head">
-                 <div class="poster">
-                    <p class="poster2">投稿タイトル</p>
-                 </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></p></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-                 <div class="poster">
-                    <p class="poster2">投稿タイトル</p>
-                 </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></p></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-                 <div class="poster">
-                    <p class="poster2">投稿タイトル</p>
-                 </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></p></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-                 <div class="poster">
-                    <p class="poster2">投稿タイトル</p>
-                 </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></p></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-                 <div class="poster">
-                    <p class="poster2">投稿タイトル</p>
-                 </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg"></a></p></div>
-        </div>
-        <div class="poster-pic">
-            <div class="post-head">
-                 <div class="poster">
-                    <p class="poster2">投稿タイトル</p>
-                 </div>
-                 <i class="far fa-clone fa-3x"></i>
-            </div>
-            <div class="top-position"><a href="遷移先の画面のURL"><img class="top" src="https://wired.jp/wp-content/uploads/2018/01/GettyImages-522585140.jpg" loading="lazy"></a></p></div>
-        </div>
-    
-    
+        <?php endforeach ?>
  </div>
 </body>
 </html>

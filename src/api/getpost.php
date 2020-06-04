@@ -3,11 +3,10 @@
 require('setting.php');
 
 $sql = "SELECT * FROM posts";
-$res = $db->query($sql);
-
-foreach($res as $row){
-  echo $row["title"];
-  echo $row["id"];
+foreach($db->query($sql) as $row){
+  echo "looping...\n";
+  echo $row["title"] . "\n";
+  echo $row["id"] . "\n";
 }
 
 ?>
