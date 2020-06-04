@@ -220,3 +220,48 @@ body {
 .move2{
     display: none;
 }
+
+#display_comments {
+    margin-bottom: 112px;
+    font-size: 12px;
+}
+
+div.comment_wrapper {
+    margin-bottom: 10px;
+    width: 80%;
+}
+
+div.comment_info {
+    display:-webkit-box;
+  	display:-ms-flexbox;
+    display:flex;  
+}
+
+span.comment_user {
+    padding: 0;
+    margin: 0 12px 0 0;
+    box-sizing: border-box;
+}
+
+span.comment_created_at {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #444;
+}
+
+p.comment_text {
+    padding: 0;
+    margin: 6px 0 0 1em;
+    box-sizing: border-box;
+}
+
+hr.comment_border {
+    padding: 0;
+    margin: 4px 0;
+    box-sizing: border-box;
+    width: auto;
+    height: 0;
+    border: 0;
+    border-bottom: 1px solid #666;
+}

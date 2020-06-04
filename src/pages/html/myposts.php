@@ -19,7 +19,6 @@ $obj = new User();
 $user = $obj->getUserInfo($_SESSION['id']);
 
 include '../../api/mock/getMyPosts.php';
-var_dump ($myposts);
 ?>
 
 <!DOCTYPE html>
