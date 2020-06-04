@@ -4,9 +4,9 @@ session_start();
 include 'setting.php';
 
 $userId = $_SESSION['id'];
-var_dump($_FILES);
-var_dump($_POST);
-var_dump($_SESSION);
+// var_dump($_FILES);
+// var_dump($_POST);
+// var_dump($_SESSION);
 
 // 登録処理
 $stmt = $db->prepare('INSERT INTO posts(user_id, workspace_id, title, text, created_at) VALUES (?, ?, ?, ?, ?)');
@@ -32,5 +32,16 @@ foreach($_FILES['image']['tmp_name'] as $i => $tmp_name) {
     $stmt->bindValue(2, $postId."-".$i.".jpg");
     $stmt->execute();
 }
+
+
+if($_POST['workspace'] === "1"){
+    header("Location: ../pages/html/posts_system.php");
+}elseif($_POST['workspace'] === "2"){
+    header("Location: ../pages/html/posts_private.php");
+}else{
+    echo "投稿に失敗しました";
+}
+
+
 
 ?>
