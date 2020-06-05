@@ -1,7 +1,17 @@
 <?php
-require(dirname(__FILE__) . '/setting.php');
+session_start();
 
-$post_id = $_GET["post_id"];
+
+// // ログイン中ユーザの情報を変数に代入
+include_once 'getuserinfo.php';
+$obj = new User();
+$user = $obj->getUserInfo($_SESSION['id']);
+
+
+require(dirname(__FILE__) . '/setting.php');
+$post_id = $_GET['id'];
+
+
 
 if (!empty($post_id) && !is_numeric($post_id)) {
     echo "投稿ID取得に失敗しました\n";
@@ -9,8 +19,8 @@ if (!empty($post_id) && !is_numeric($post_id)) {
     return NULL;
 }
 
-$stmt = $db->prepare("
-SELECT p.title,
+$stmt = $db->prepare(
+  'SELECT p.title,
   p.text,
   p.workspace_id,
   p.created_at,
@@ -31,13 +41,14 @@ FROM posts p
   LEFT JOIN likes l ON p.id = l.post_id
   LEFT JOIN comments c ON p.id = c.post_id
 WHERE p.id = :post_id;
-");
+');
 
 $stmt->execute(array(":post_id" => $post_id));
-$response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $post_detail = array();
 
-foreach ($response as $i => $row) {
+
+foreach ($stmt as  $row) {
   if (!array_key_exists($row['title'], $post_detail)) {
       $post_detail = array(
           'title' => $row['title'],
@@ -53,13 +64,11 @@ foreach ($response as $i => $row) {
           'comments' => array()
       );
   }
-  if (!array_key_exists($row['image_path'], $post_detail)) {
+  // if (!array_key_exists($row['image_path'], $post_detail)) {
       $post_detail['image_path'][] = $row['image_path'];
   }
-}
-
-$stmt = $db->prepare("
-    SELECT (
+      
+$stmt = $db->prepare("SELECT (
         SELECT name
         FROM users u
         where u.id = c.user_id
@@ -71,6 +80,12 @@ $stmt = $db->prepare("
     ORDER BY comment_created_at ASC
 ");
 $stmt->execute(array(":post_id" => $post_id));
-$comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $post_detail['comments'] = $comment_response;
+
+
+
 ?>
+
+
+

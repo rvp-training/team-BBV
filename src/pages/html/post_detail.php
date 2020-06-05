@@ -57,9 +57,11 @@ include '../../api/getpostdetail.php';
     <!--コンテンツ-->
      <div id="contents">
         <ul id="post-info">
-            <li id="postuser"><?php echo $post_detail["username"];?></li>
+            <li id="postuser"><?php echo $post_detail["name"];?></li>
             <div id="hover">
-                <li><img id="postuser-icon" src="<?php echo '../../images/users/' . $post_detail["user_image_path"];?>"></li>
+                <li>
+                    <img id="postuser-icon" src="<?php echo '../../images/users/'.$post_detail['user_image_path'];?>">
+                </li>
                 <p class="fukidashi">所属部署：<?php echo $post_detail["department"];?><br><?php echo $post_detail["introduction"];?></p>
             </div>
             <li id="post-date"><?php echo $post_detail["created_at"];?></li>
@@ -94,7 +96,7 @@ include '../../api/getpostdetail.php';
                 <?php endif; ?>
             <p id="post-text"><?php echo $post_detail["text"];?></p>
             <div id="display_comments">
-                <?php foreach($post_detail["comments"] as $i => $comment): ?>
+                <?php foreach((array)$post_detail["comments"] as $i => $comment): ?>
                     <div class="comment_wrapper">
                         <?php if($i !== 0): ?>
                             <hr class="comment_border" />
