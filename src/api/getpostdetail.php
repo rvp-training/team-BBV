@@ -68,7 +68,7 @@ $stmt = $db->prepare("
     c.created_at as comment_created_at
     FROM comments c
     WHERE c.post_id = :post_id
-    ORDER BY comment_created_at DESC
+    ORDER BY comment_created_at ASC
 ");
 $stmt->execute(array(":post_id" => $post_id));
 $comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);

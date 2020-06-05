@@ -69,7 +69,7 @@ include '../../api/getpostdetail.php';
             <p id="title"><?php echo $post_detail["title"];?></p>
                 <div id="post-img">
                     <ul class="slides">
-                        <?php foreach($post_detail["image_path"] as $i => $path): ?>
+                        <?php foreach((array)$post_detail["image_path"] as $i => $path): ?>
                             <?php $active = $i === 0 ? " active" : NULL ?>
                             <li class="display<?php echo $active; ?>"><img src="<?php echo '../../images/uploads/' . $path; ?>"></li>
                         <?php endforeach; ?>
@@ -77,7 +77,7 @@ include '../../api/getpostdetail.php';
 
                     <div class="index-btn-wrapper">
                         <input class="move-back" type="submit" name="botton" value="◀">
-                        <?php foreach($post_detail["image_path"] as $i2 => $path2): ?>
+                        <?php foreach((array)$post_detail["image_path"] as $i2 => $path2): ?>
                             <?php $move = $i2 < 5 ? "move1" : "move2" ?>
                             <img class="index-btn <?php echo $move; ?>" src="<?php echo '../../images/uploads/' .  $path2; ?>">
                         <?php endforeach; ?>
