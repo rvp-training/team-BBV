@@ -23,7 +23,8 @@ p.form-error{
 div{
     text-align:center;
     background-color: #efa003;
-    margin: 70px 600px;
+    margin: 0 auto;
     padding: 50px;
     color: beige;
+    width: 400px;
 }
