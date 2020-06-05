@@ -66,7 +66,7 @@ include '../../api/getMyPosts.php';
     </button>
     </p>
     <div id="pictures">
-        <?php foreach($response as $mypost): ?>
+        <?php foreach($myposts as $mypost): ?>
         <div class="poster-pic">
             <div class="post-head">
                  <div class="poster">
