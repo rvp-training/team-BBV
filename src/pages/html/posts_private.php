@@ -111,6 +111,7 @@ foreach ($db->query($sql) as $row) {
                 </a>
             </div>
         </div>
+
         <?php endforeach; ?>
     </div>
 </body>

@@ -76,7 +76,11 @@ include '../../api/getMyPosts.php';
                     <i class="far fa-clone fa-3x"></i>
                  <?php endif; ?>
             </div>
-            <div class="top-position"><a href="post_detail.php?id=<?php print($mypost['id'])?>"><img class="top" src="<?php echo $mypost["image_path"][0]?>" loading="lazy"></a></p></div>
+            <div class="top-position">
+                <a href="post_detail.php?id=<?php print($mypost['id'])?>">
+                    <img class="top" src="<?php echo '../../images/uploads/'. $mypost["image_path"][0] ?>" loading="lazy">
+                </a>
+            </div>
         </div>
         <?php endforeach ?>
  </div>
