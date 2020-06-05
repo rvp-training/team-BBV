@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 // ログインしていなければ一般ユーザー用ログインページにリダイレクト
@@ -12,7 +12,7 @@ $obj = new User();
 $user = $obj->getUserInfo($_SESSION['id']);
 
 // APIレスポンス：$post_detail
-include '../../api/mock/get_post_detail.php';
+include '../../api/getpostdetail.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ include '../../api/mock/get_post_detail.php';
 </head>
 
 <body>
-    
+
     <!--一般ユーザーサイドバー-->
     <div id="sidebar">
         <div id="sidebar-title">
@@ -39,8 +39,8 @@ include '../../api/mock/get_post_detail.php';
         </div>
         <div id="sidebar-body">
             <p class="workspace">ワークスペース</p>
-            <p><button class="side-botton" style="background: #f9f1b5;" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p> 
-            <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p> 
+            <p><button class="side-botton" style="background: #f9f1b5;" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p>
+            <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p>
             <p class="logout">
                 <button type="submit" onclick="location.href='../../api/logout.php'">
                 <i class="fas fa-sign-out-alt fa-2x"></i>
@@ -58,12 +58,12 @@ include '../../api/mock/get_post_detail.php';
      <div id="contents">
         <ul id="post-info">
             <li id="postuser"><?php echo $post_detail["username"];?></li>
-            <div id="hover">    
-                <li><img id="postuser-icon" src="<?php echo $post_detail["user_image_path"];?>"></li>
+            <div id="hover">
+                <li><img id="postuser-icon" src="<?php echo '../../images/users/' . $post_detail["user_image_path"];?>"></li>
                 <p class="fukidashi">所属部署：<?php echo $post_detail["department"];?><br><?php echo $post_detail["introduction"];?></p>
             </div>
             <li id="post-date"><?php echo $post_detail["created_at"];?></li>
-        </ul>        
+        </ul>
 
         <div id="post">
             <p id="title"><?php echo $post_detail["title"];?></p>
@@ -71,15 +71,15 @@ include '../../api/mock/get_post_detail.php';
                     <ul class="slides">
                         <?php foreach($post_detail["image_path"] as $i => $path): ?>
                             <?php $active = $i === 0 ? " active" : NULL ?>
-                            <li class="display<?php echo $active; ?>"><img src="<?php echo $path; ?>"></li>
+                            <li class="display<?php echo $active; ?>"><img src="<?php echo '../../images/uploads/' . $path; ?>"></li>
                         <?php endforeach; ?>
                     </ul>
-                    
+
                     <div class="index-btn-wrapper">
                         <input class="move-back" type="submit" name="botton" value="◀">
                         <?php foreach($post_detail["image_path"] as $i2 => $path2): ?>
                             <?php $move = $i2 < 5 ? "move1" : "move2" ?>
-                            <img class="index-btn <?php echo $move; ?>" src="<?php echo $path2; ?>">
+                            <img class="index-btn <?php echo $move; ?>" src="<?php echo '../../images/uploads/' .  $path2; ?>">
                         <?php endforeach; ?>
                         <input class="move-go" type="submit" name="botton" value="▶">
                     </div>
@@ -87,12 +87,12 @@ include '../../api/mock/get_post_detail.php';
                 <?php if ($post_detail["workspace"] === "private"):?>
                     <div id="nice">
                         <button type="submit" onclick="disabled = true;">
-                            <i class="far fa-thumbs-up fa-3x"></i> 
+                            <i class="far fa-thumbs-up fa-3x"></i>
                         </button>
                         <p><?php echo $post_detail["like_count"];?>件いいねされました！</p>
                     </div>
                 <?php endif; ?>
-            <p id="post-text"><?php echo $post_detail["text"];?></p> 
+            <p id="post-text"><?php echo $post_detail["text"];?></p>
             <div id="display_comments">
                 <?php foreach($post_detail["comments"] as $i => $comment): ?>
                     <div class="comment_wrapper">
@@ -109,7 +109,7 @@ include '../../api/mock/get_post_detail.php';
             </div>
         </div>
     </div>
-    
+
     <div id="comment">
         <li><textarea val="" name="comments" placeholder="コメントを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
         <li><button id="send" disabled type="submit" onclick="location.href=ここにURLいれる">

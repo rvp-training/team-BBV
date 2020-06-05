@@ -19,13 +19,13 @@ $stmt->execute(array(':user_id' => $user_id));
 $myposts = array();
 
 foreach ($stmt as $row) {
-    if (!array_key_exists($row['image_path'], $myposts)) {
-        $myposts[] = array(
+    if (!array_key_exists($row['id'], $myposts)) {
+        $myposts[$row['id']] = array(
             'id' => $row['id'],
             'title' => $row['title'],
             'created_at' => $row['created_at'],
             'image_path' => array()
         );
     }
-    // $myposts[$row['id']]['image_path'][] = $row['image_path'];
+    $myposts[$row['id']]['image_path'][] = $row['image_path'];
 }
