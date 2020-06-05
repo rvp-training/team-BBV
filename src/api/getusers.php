@@ -6,6 +6,7 @@ $sql = "SELECT users.id as user_id, users.name as user_name, email, password, de
         FROM users
         LEFT JOIN departments
         ON users.department_id = departments.id
+        WHERE users.is_deleted = false
         ORDER BY users.id";
 //$sql = "SELECT * FROM users, departments WHERE users.department_id = departments.id;";
 //$sql = "SELECT id, name, deparment, email, password FROM　users;";

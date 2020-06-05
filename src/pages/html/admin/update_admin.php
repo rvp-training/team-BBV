@@ -65,7 +65,7 @@ $_SESSION['selected'] = $id;
             <ul id="edit-list">
                 <li>
                     <p>ユーザー名  <span>(全角または半角2～20字)</span></p>
-                    <input name="name" id="name" val="" maxlength="20" minlength="2" value="<?php echo $userinfo['name']; ?>">
+                    <input name="name" id="name" maxlength="20" minlength="2" value="<?php echo $userinfo['name']; ?>">
                 </li>
                 <li>
                     <p>所属部署</p>
@@ -82,7 +82,7 @@ $_SESSION['selected'] = $id;
                 </li>
                 <li>
                     <p>パスワード  <span>(半角英数字6字)</span></p>
-                    <input name="password" id="pass" val="" type="password" pattern="[0-9A-Za-z]{6}" maxlength="6">
+                    <input name="password" id="pass" value="<?php echo $userinfo['password']; ?>" type="password" pattern="[0-9A-Za-z]{6}" maxlength="6">
                 </li>
             </ul>
             <input id="button" disabled type="submit" value="変更を保存">
