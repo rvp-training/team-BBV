@@ -18,7 +18,7 @@ include '../../api/getuserinfo.php';
 $obj = new User();
 $user = $obj->getUserInfo($_SESSION['id']);
 
-include '../../api/mock/getMyPosts.php';
+include '../../api/getMyPosts.php';
 ?>
 
 <!DOCTYPE html>
@@ -66,15 +66,17 @@ include '../../api/mock/getMyPosts.php';
     </button>
     </p>
     <div id="pictures">
-        <?php foreach($myposts as $mypost): ?>
+        <?php foreach($response as $mypost): ?>
         <div class="poster-pic">
             <div class="post-head">
                  <div class="poster">
                     <p class="poster2"><?php echo $mypost["title"] ?></p>
                  </div>
-                 <i class="far fa-clone fa-3x"></i>
+                 <?php if(count($mypost["image_path"]) >= 2): ?>
+                    <i class="far fa-clone fa-3x"></i>
+                 <?php endif; ?>
             </div>
-            <div class="top-position"><a href="post_detail.php?id=<?php print($mypost['post_id'])?>"><img class="top" src="<?php echo $mypost["image_path"]?>" loading="lazy"></a></p></div>
+            <div class="top-position"><a href="post_detail.php?id=<?php print($mypost['id'])?>"><img class="top" src="<?php echo $mypost["image_path"][0]?>" loading="lazy"></a></p></div>
         </div>
         <?php endforeach ?>
  </div>

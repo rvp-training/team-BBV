@@ -39,6 +39,7 @@ if($_POST['workspace'] === "1"){
 }elseif($_POST['workspace'] === "2"){
     header("Location: ../pages/html/posts_private.php");
 }else{
+    var_dump($stmt->errorInfo());
     echo "投稿に失敗しました";
 }
 
