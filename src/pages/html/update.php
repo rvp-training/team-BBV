@@ -11,7 +11,7 @@ if (!isset($_SESSION['id'])) {
 // ログイン中ユーザの情報を変数に代入
 include '../../api/getuserinfo.php';
 $obj = new User();
-$userinfo = $obj->getUserInfo($_SESSION['id']);
+$user = $obj->getUserInfo($_SESSION['id']);
 
 ?>
 
@@ -55,28 +55,32 @@ $userinfo = $obj->getUserInfo($_SESSION['id']);
     </div>
 
         <!--コンテンツ-->
-        <form id="update-bottom" action="../../api/updateuser.php" method="post">
+        <form id="update-bottom" enctype="multipart/form-data" action="../../api/updateuser.php" method="post">
         <div id="update-left" method="post">
             <h1>- ユーザー情報設定 -</h1>
             <ul id="update-list">
                 <li>
                     <p class="item">ユーザー名※</p>
-                    <p class="get-item">”<?php echo $userinfo['name']; ?>”</p>
+                    <p class="get-item">”<?php echo $user['name']; ?>”</p>
                 </li>
                 <li>
                     <p class="item">所属部署※</p>
-                    <p class="get-item">”<?php echo $userinfo['department']; ?>”</p>
+                    <p class="get-item">”<?php echo $user['department']; ?>”</p>
                 </li>
                 <li>
                     <p class="item">ひとこと自己紹介　<span>(全角または半角50字以内)</span></p>
-                    <textarea name="introduction" id="hitokoto" value="" maxlength="50"><?php echo $userinfo['introduction']; ?></textarea>
+                    <textarea name="introduction" id="hitokoto" value="" maxlength="50"><?php echo $user['introduction']; ?></textarea>
                 </li>
             </ul>
         </div>
         <div id="update-right" method="post">
             <p>プロフィール写真</p>
             <input name="image" type="file" id="myImage" accept="image/*">
-            <p><img id="preview"></p>
+            <p><img id="preview" src="<?php if($user['image']): ?>
+                <?php print('../../images/users/' . $user['image']); ?>
+            <?php else: ?>
+                <?php print('/images/user_default.jpeg'); ?>
+            <?php endif; ?>"></p>
         </div>
         
             <input id="button" type="submit" value="変更を保存" />
