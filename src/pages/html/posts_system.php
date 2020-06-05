@@ -104,11 +104,12 @@ foreach ($db->query($sql) as $row) {
                 <?php endif; ?>
             </div>
             <div class="top-position">
-                <a href="post_detail.php?=<?php $post['id'] ?>">
+                <a href="post_detail.php?=<?php print $post['id']; ?>">
                     <img class="top" src=<?php echo '/images/uploads/'.$post['image_path'][0]; ?> loading="lazy">
                 </a>
             </div>
         </div>
+        <?php var_dump($post['id']); ?>
         <?php endforeach; ?>
     </div>
 </body>
