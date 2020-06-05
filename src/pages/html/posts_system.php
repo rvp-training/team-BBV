@@ -104,7 +104,7 @@ foreach ($db->query($sql) as $row) {
                 <?php endif; ?>
             </div>
             <div class="top-position">
-                <a href="遷移先の画面のURL">
+                <a href="post_detail.php?=<?php $post['id'] ?>">
                     <img class="top" src=<?php echo '/images/uploads/'.$post['image_path'][0]; ?> loading="lazy">
                 </a>
             </div>
