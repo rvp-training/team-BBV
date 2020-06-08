@@ -86,7 +86,7 @@ include '../../api/getpostdetail.php';
                         <input class="move-go" type="submit" name="botton" value="▶">
                     </div>
                 </div>
-                <?php if ($post_detail["workspace"] === "private"):?>
+                <?php if ($post_detail["workspace_id"] === 2):?>
                     <div id="nice">
                         <button type="submit" onclick="disabled = true;">
                             <i class="far fa-thumbs-up fa-3x"></i>
