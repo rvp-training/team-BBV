@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../../api/setting.php';
 
 // ログインしていなければ一般ユーザー用ログインページにリダイレクト
 if (!isset($_SESSION['id'])) {
@@ -13,6 +14,12 @@ $user = $obj->getUserInfo($_SESSION['id']);
 
 // APIレスポンス：$post_detail
 include '../../api/getpostdetail.php';
+
+//likesテーブルへの検索
+//一つの投稿に２回以上いいねできない仕様にする
+$sql = $db->prepare('SELECT * FROM likes WHERE user_id=? AND post_id=?');
+$sql->execute(array($_SESSION['id'], $post_detail['id']));
+$record = $sql->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -88,9 +95,11 @@ include '../../api/getpostdetail.php';
                 </div>
                 <?php if ($post_detail["workspace_id"] === 2):?>
                     <div id="nice">
-                        <button type="submit" onclick="disabled = true;">
-                            <i class="far fa-thumbs-up fa-3x"></i>
-                        </button>
+                        <?php if(!$record): ?>
+                            <button type="submit" onclick="disabled = true; location.href='../../api/createlike.php?id=<?php echo $post_detail['id']; ?>'">
+                                <i class="far fa-thumbs-up fa-3x"></i>
+                            </button>
+                        <?php endif; ?>
                         <p><?php echo $post_detail["like_count"];?>件いいねされました！</p>
                     </div>
                 <?php endif; ?>
@@ -112,12 +121,12 @@ include '../../api/getpostdetail.php';
         </div>
     </div>
 
-    <div id="comment">
-        <li><textarea val="" name="comments" placeholder="コメントを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
-        <li><button id="send" disabled type="submit" onclick="location.href=ここにURLいれる">
+    <form id="comment" action="../../api/createcomment.php?id=<?php echo $post_detail['id']; ?>" method="post">
+        <li><textarea name="comment" placeholder="コメントを入力してください。(全角または半角4,000字以内)" maxlength="4000"></textarea></li>
+        <li><button id="send" disabled type="submit">
             <i class="fas fa-share fa-3x"></i></button>
         </li>
-    </div>
+    </form>
     <script src="post_detail.js"></script>
 </body>
 </html>
