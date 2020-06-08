@@ -19,10 +19,7 @@ if (!empty($post_id) && !is_numeric($post_id)) {
     return NULL;
 }
 
-$stmt = $db->prepare(
-  'SELECT 
-  p.id,
-  p.title,
+$stmt = $db->prepare('SELECT p.title,
   p.text,
   p.workspace_id,
   p.created_at,
@@ -53,7 +50,6 @@ $post_detail = array();
 foreach ($stmt as  $row) {
   if (!array_key_exists($row['title'], $post_detail)) {
       $post_detail = array(
-          'id' => $row['id'],
           'title' => $row['title'],
           'text' => $row['text'],
           'workspace_id' => $row['workspace_id'],
@@ -83,7 +79,7 @@ $stmt = $db->prepare("SELECT (
     ORDER BY comment_created_at ASC
 ");
 $stmt->execute(array(":post_id" => $post_id));
-$comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// $comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $post_detail['comments'] = $comment_response;
 
 
