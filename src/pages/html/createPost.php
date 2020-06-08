@@ -150,8 +150,8 @@ $user = $obj->getUserInfo($_SESSION['id']);
 
             <div id="workspace-radio">
                 <p>投稿先ワークスペースを選択してください・・・　</p>
-                <input id="item-2" class="radio-inline__input" type="radio" name="workspace" value="1"/>
-                <label class="radio-inline__label" for="item-2" required>
+                <input id="item-2" class="radio-inline__input" type="radio" name="workspace" value="1" required/>
+                <label class="radio-inline__label" for="item-2">
                     システム関連
                 </label>
                 <input id="item-3" class="radio-inline__input" type="radio" name="workspace" value="2"/>

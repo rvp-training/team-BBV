@@ -16,16 +16,14 @@ $(function () {
   
       //処理分け
       if (count_name < 2 || count_pass != 6) {
- 
         $('#button').prop('disabled', true);
   
       } else {
         $('#button').prop('disabled', false);
       }
-
     });
 
-
+    
 
   });
   
