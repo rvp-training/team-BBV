@@ -25,6 +25,12 @@ body {
     padding-left: 0px; 
 }
 
+.sidebutton {
+    border-radius: 8px;
+    width: 80px;
+    height: 50px;
+}
+
 #sidebar li {
     float: left;
     list-style: none;

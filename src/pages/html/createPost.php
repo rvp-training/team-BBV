@@ -57,7 +57,6 @@ $user = $obj->getUserInfo($_SESSION['id']);
             <h1>- 投稿を作成 -</h1>
         <form id="create" enctype="multipart/form-data" method="post" action="../../api/createPost.php">
             <input id="title" name="title" val="" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)" required>
-              
             <div id="images"><!--これが画像1~10枚たちのdiv-->
 
                 <div class="img set-0">
@@ -145,7 +144,6 @@ $user = $obj->getUserInfo($_SESSION['id']);
 
 
             </div>
-               
             
 
 
