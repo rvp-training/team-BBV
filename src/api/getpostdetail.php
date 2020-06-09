@@ -19,7 +19,8 @@ if (!empty($post_id) && !is_numeric($post_id)) {
     return NULL;
 }
 
-$stmt = $db->prepare('SELECT p.title,
+$stmt = $db->prepare('SELECT p.id,
+  p.title,
   p.text,
   p.workspace_id,
   p.created_at,
@@ -49,6 +50,7 @@ $post_detail = array();
 foreach ($stmt as $row) {
   if (empty($post_detail)) {
       $post_detail= array(
+          'id' => $row['id'],
           'title' => $row['title'],
           'text' => $row['text'],
           'workspace_id' => $row['workspace_id'],
