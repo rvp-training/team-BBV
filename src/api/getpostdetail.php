@@ -46,10 +46,9 @@ $stmt->execute(array(":post_id" => $post_id));
 // $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $post_detail = array();
 
-
-foreach ($stmt as  $row) {
-  if (!array_key_exists($row['title'], $post_detail)) {
-      $post_detail = array(
+foreach ($stmt as $row) {
+  if (empty($post_detail)) {
+      $post_detail= array(
           'title' => $row['title'],
           'text' => $row['text'],
           'workspace_id' => $row['workspace_id'],
@@ -63,10 +62,9 @@ foreach ($stmt as  $row) {
           'comments' => array()
       );
   }
-  // if (!array_key_exists($row['image_path'], $post_detail)) {
-      $post_detail['image_path'][] = $row['image_path'];
-  }
-      
+  array_push($post_detail['image_path'], $row['image_path']);
+}
+
 $stmt = $db->prepare("SELECT (
         SELECT name
         FROM users u
@@ -85,6 +83,3 @@ $post_detail['comments'] = $comment_response;
 
 
 ?>
-
-
-
