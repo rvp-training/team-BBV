@@ -30,7 +30,7 @@ INNER JOIN users u ON p.user_id = u.id
 INNER JOIN departments d ON u.department_id = d.id
 INNER JOIN images i ON p.id = i.post_id
 WHERE p.workspace_id = 1
-ORDER BY p.id
+ORDER BY p.id DESC
 ';
 
 foreach ($db->query($sql) as $row) {
