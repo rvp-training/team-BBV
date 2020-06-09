@@ -2,6 +2,13 @@
 session_start();
 include '../../../api/setting.php';
 
+$sql =$db->prepare('SELECT * FROM users WHERE id=?');
+$sql->execute(array($_SESSION['id']));
+$result = $sql->fetch();
+if (!isset($_SESSION['id']) || !$result['is_admin']) {
+    header('Location: ../login.php');
+}
+
 include "../../../api/getuserinfo.php";
 $user = new User();
 $userinfo = $user->getUserInfo($_SESSION['selected']);
