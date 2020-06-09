@@ -1,2 +1,4 @@
 /src/images/uploads/*
 /src/images/users/*
+
+!.gitkeep
