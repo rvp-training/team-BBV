@@ -94,7 +94,11 @@ foreach ($db->query($sql) as $row) {
         <div class="poster-pic">
             <div class="post-head">
                 <div id="hover">
-                    <img class="img" src= <?php print('../../images/users/' . $post['user_image_path']); ?> loading="lazy">
+                    <img class="img" src= "<?php if ($post['user_image_path']): ?>
+                        <?php print('../../images/users/' . $post['user_image_path']); ?>
+                    <?php else: ?>
+                        <?php print('../../images/user_default.jpeg'); ?>
+                    <?php endif; ?>" loading="lazy">
                     <p class="fukidashi"><?php echo $post['department']; ?>：<br><?php echo $post['introduction']; ?></p>
                 </div> 
                 <div class="poster">
