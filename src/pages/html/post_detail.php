@@ -26,7 +26,7 @@ $record = $sql->fetch(PDO::FETCH_ASSOC);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>投稿詳細（日常）</title>
+    <title>投稿詳細</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="post_detail.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
