@@ -69,12 +69,12 @@ include '../../api/getMyPosts.php';
         <?php foreach($myposts as $mypost): ?>
         <div class="poster-pic">
             <div class="post-head">
-                 <div class="poster">
+                <div class="poster">
                     <p class="poster2"><?php echo $mypost["title"] ?></p>
-                 </div>
-                 <?php if(count($mypost["image_path"]) >= 2): ?>
+                </div>
+                <?php if(count($mypost["image_path"]) >= 2): ?>
                     <i class="far fa-clone fa-3x"></i>
-                 <?php endif; ?>
+                <?php endif; ?>
             </div>
             <div class="top-position">
                 <a href="post_detail.php?id=<?php print($mypost['id'])?>">
@@ -83,6 +83,6 @@ include '../../api/getMyPosts.php';
             </div>
         </div>
         <?php endforeach ?>
- </div>
+</div>
 </body>
 </html>
