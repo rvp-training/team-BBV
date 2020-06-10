@@ -82,6 +82,7 @@ $record = $sql->fetch(PDO::FETCH_ASSOC);
             <p id="title"><?php echo $post_detail["title"];?></p>
                 <div id="post-img">
                     <ul class="slides">
+                        <?php $num = 0;?>
                         <?php foreach((array)$post_detail["image_path"] as $i => $path): ?>
                             <?php $active = $i === 0 ? " active" : NULL ?>
                             <li class="display<?php echo $active; ?>"><img src="<?php echo '../../images/uploads/' . $path; ?>"></li>

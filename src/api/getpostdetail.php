@@ -38,8 +38,6 @@ FROM posts p
   LEFT JOIN users u ON p.user_id = u.id
   LEFT JOIN departments d ON u.department_id = d.id
   LEFT JOIN images i ON p.id = i.post_id
-  LEFT JOIN likes l ON p.id = l.post_id
-  LEFT JOIN comments c ON p.id = c.post_id
 WHERE p.id = :post_id;
 ');
 
@@ -79,7 +77,7 @@ $stmt = $db->prepare("SELECT (
     ORDER BY comment_created_at ASC
 ");
 $stmt->execute(array(":post_id" => $post_id));
-// $comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $post_detail['comments'] = $comment_response;
 
 
