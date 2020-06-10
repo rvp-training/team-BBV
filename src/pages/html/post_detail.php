@@ -26,7 +26,7 @@ $record = $sql->fetch(PDO::FETCH_ASSOC);
 <html>
 <head>
     <meta charset="utf-8">
-    <title>投稿詳細</title>
+    <title>投稿詳細（日常）</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="post_detail.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -46,8 +46,8 @@ $record = $sql->fetch(PDO::FETCH_ASSOC);
         </div>
         <div id="sidebar-body">
             <p class="workspace">ワークスペース</p>
-            <p><button class="side-botton"  style="<?php if($post_detail['workspace_id'] === 1) echo "background: #f9f1b5;"?>" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p>
-            <p><input class="side-botton"  style="<?php if($post_detail['workspace_id'] === 2) echo "background: #f9f1b5;"?>" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p>
+            <p><button class="side-botton" style="background: #f9f1b5;" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p>
+            <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p>
             <p class="logout">
                 <button type="submit" onclick="location.href='../../api/logout.php'">
                 <i class="fas fa-sign-out-alt fa-2x"></i>
@@ -67,7 +67,11 @@ $record = $sql->fetch(PDO::FETCH_ASSOC);
             <li id="postuser"><?php echo $post_detail["name"];?></li>
             <div id="hover">
                 <li>
-                    <img id="postuser-icon" src="<?php echo '../../images/users/'.$post_detail['user_image_path'];?>">
+                    <img id="postuser-icon" src="<?php if($post_detail['user_image_path']): ?>
+                        <?php print('../../images/users/' . $post_detail['user_image_path']); ?>
+                    <?php else: ?>
+                        <?php print('../../images/user_default.jpeg'); ?>
+                    <?php endif; ?>">
                 </li>
                 <p class="fukidashi">所属部署：<?php echo $post_detail["department"];?><br><?php echo $post_detail["introduction"];?></p>
             </div>
