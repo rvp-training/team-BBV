@@ -1,8 +1,6 @@
 <?php
 session_start();
-//$flash = isset($_SESSION['flash']) ? $_SESSION['flash'] : array();
-//unset($_SESSION['flash']);
- 
+
 //データベースへ接続
 include 'setting.php';
 
@@ -16,9 +14,15 @@ foreach($_FILES['image']['tmp_name'] as $image) {
   }
 }
 
+function flash($type, $message) {
+  global $flash;
+  $_SESSION['flash'][$type] = $message;
+  $flash[$type] = $message;
+}
+
 // 0枚なら投稿作成ページにリダイレクト
 if($num === 0){
-  $_SESSION['error'] = 'img_null';
+  flash('error', '*画像は１枚以上選択してください');
   header("Location: ../pages/html/createPost.php");
 }else{
 

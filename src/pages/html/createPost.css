@@ -85,6 +85,12 @@ h1 {
     top: 80px;
 }
 
+.flash{
+    color: red;
+    margin-top: 40px;
+
+}
+
 .img {
     float: left;
     margin: 20px;

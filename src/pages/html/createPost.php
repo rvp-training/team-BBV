@@ -1,6 +1,10 @@
 <?php 
 session_start();
 
+//フラッシュをクリアする処理
+$flash = isset($_SESSION['flash']) ? $_SESSION['flash'] : array();
+unset($_SESSION['flash']);
+
 // ログインしていなければ一般ユーザー用ログインページにリダイレクト
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
@@ -57,11 +61,14 @@ $user = $obj->getUserInfo($_SESSION['id']);
             <h1>- 投稿を作成 -</h1>
         <form id="create" enctype="multipart/form-data" method="post" action="../../api/createPost.php">
             <input id="title" name="title" val="" maxlength="40" placeholder="タイトルを入力してください。(全角または半角40字以内)" required>
-            <?php if($_SESSION['error'] === 'img_null'): ?>
-                <p style="color: red;">*画像は一枚以上選択してください</p>
-            <?php endif; ?>
+            <?php foreach(array('default', 'error', 'warning') as $key): ?>
+                <?php if(strlen(@$flash[$key])): ?>
+                    <div class="flash flash-<?php echo $key ?>">
+                        <?php echo $flash[$key] ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
             <div id="images"><!--これが画像1~10枚たちのdiv-->
-
                 <div class="img set-0">
                     <input type="file" name="image[]" class="postImg input-0" accept="image/*">
                     <div class="preview image-0"> 
