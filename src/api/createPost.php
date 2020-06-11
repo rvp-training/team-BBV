@@ -6,6 +6,8 @@ include 'setting.php';
 
 $userId = $_SESSION['id'];
 
+//date_default_timezone_set('Asia/Tokyo');
+
 //選択された画像の枚数を数える
 $num = 0;
 foreach($_FILES['image']['tmp_name'] as $image) {
