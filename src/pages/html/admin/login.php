@@ -43,7 +43,7 @@ $currentUser = $obj->getUserInfo($_SESSION['id']);
     <h1 class="form-title">RVP画像共有チャット</h1>
     <div id="from">
     <?php if (isset($_SESSION['id'])): ?>
-        <?php echo $currentUser['name'] . " さんでログイン中です。ログアウト処理してください。" ?><a href="../posts_system.php" style="color: white">システム関連投稿一覧ページへ</a>
+        <?php echo $currentUser['name'] . " さんでログイン中です。ログアウト処理してください。" ?><a href="getUsers.php" style="color: white">ユーザー一覧ページへ</a>
     <?php endif; ?>
     <form action="" method="post">
         <!-- ログイン失敗時のエラー文 -->
