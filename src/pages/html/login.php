@@ -2,11 +2,6 @@
 session_start();
 include '../../api/setting.php';
 
-// デバッグ用記述
-if (isset($_SESSION['id'])) {
-    var_dump($_SESSION['id']);
-} 
-
 // formが送信されたとき
 if(!empty($_POST)){
     if($_POST['email'] !== '' && $_POST['password'] !== ''){
@@ -30,6 +25,11 @@ if(!empty($_POST)){
     }
     
 }
+
+// ログイン中ユーザの情報を変数に代入
+include '../../api/getuserinfo.php';
+$obj = new User();
+$currentUser = $obj->getUserInfo($_SESSION['id']);
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +42,9 @@ if(!empty($_POST)){
 <body>
     <h1 class="form-title">RVP画像共有チャット</h1>
     <div id="from">
+    <?php if (isset($_SESSION['id'])): ?>
+        <?php echo $currentUser['name'] . " さんでログイン中です。ログアウト処理してください。" ?><a href="posts_system.php" style="color: white">システム関連投稿一覧ページへ</a>
+    <?php endif; ?>
     <form action="" method="post">
         <!-- ログイン失敗時のエラー文 -->
         <?php if($error['login'] === 'failed'): ?>
