@@ -6,8 +6,6 @@ include 'setting.php';
 
 $userId = $_SESSION['id'];
 
-//date_default_timezone_set('Asia/Tokyo');
-
 //選択された画像の枚数を数える
 $num = 0;
 foreach($_FILES['image']['tmp_name'] as $image) {
@@ -39,6 +37,8 @@ if($num === 0){
 
   $postId = $db->lastInsertId();
 
+  $stmt = $db->query("UPDATE posts SET created_at = created_at + interval '9 hour' WHERE id=$postId");
+
   foreach($_FILES['image']['tmp_name'] as $i => $tmp_name) {
       //画像が１枚もなければループを抜ける
       if ($tmp_name === "") {
@@ -53,6 +53,7 @@ if($num === 0){
       $stmt->bindValue(2, $postId."-".$i.".jpg");
       $stmt->execute();
   }
+
 
   unset($_SESSION['error']);
 

@@ -65,8 +65,6 @@ foreach ($stmt as $row) {
   array_push($post_detail['image_path'], $row['image_path']);
 }
 
-$stmt = $db->prepare("UPDATE posts SET created_at = created_at + interval '9 hour'");
-
 $stmt = $db->prepare("SELECT (
         SELECT name
         FROM users u
@@ -82,9 +80,5 @@ $stmt->execute(array(":post_id" => $post_id));
 $comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $post_detail['comments'] = $comment_response;
 
-//var_dump(strtotime($post_detail['created_at']), strtotime('+9hour'));
-//$H = date('H'+9,strtotime($post_detail['created_at']));
-//var_dump ($H);
-//echo date('Y/m/d H:i',strtotime($post_detail['created_at']));
 
 ?>
