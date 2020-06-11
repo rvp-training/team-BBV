@@ -15,10 +15,10 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
 // myposts.phpの５－９行目をコピーし、
 // パラメータを受け取る
 $id = $_REQUEST['id'];
-if (!is_numeric($id) || $id <= 0) {
-  print('パラメータは1以上の数字で指定してください');
-  exit();
-}
+// if (!is_numeric($id) || $id <= 0) {
+//   print('パラメータは1以上の数字で指定してください');
+//   exit();
+// }
 
 //初期値を入れる
 //受け取ったidを引数にして、getUserInfoを呼び出し値を取得
