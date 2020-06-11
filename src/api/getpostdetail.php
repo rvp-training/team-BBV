@@ -81,5 +81,4 @@ $comment_response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $post_detail['comments'] = $comment_response;
 
 
-
 ?>

@@ -27,6 +27,9 @@ $stmt->bindValue(3, $text);
 $stmt->bindValue(4, date("cZ"));
 $res = $stmt->execute();
 
+$commentId = $db->lastInsertId();
+$stmt = $db->query("UPDATE comments SET created_at = created_at + interval '9 hour' WHERE id=$commentId");
+
 if($res){
   header('Location: ../pages/html/post_detail.php?id=' . $post_id);
 }else{

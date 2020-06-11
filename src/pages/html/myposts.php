@@ -3,10 +3,10 @@ session_start();
 
 // パラメータで送られてきたidを取得して変数に代入
 $id = $_REQUEST['id'];
-if (!is_numeric($id) || $id <= 0) {
-  print('パラメータは1以上の数字で指定してください');
-  exit();
-}
+// if (!is_numeric($id) || $id <= 0) {
+//   print('パラメータは1以上の数字で指定してください');
+//   exit();
+// }
 
 // ログインしていなければ一般ユーザー用ログインページにリダイレクト
 if (!isset($_SESSION['id'])) {
