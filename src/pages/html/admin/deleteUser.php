@@ -9,9 +9,14 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
     header('Location: ../login.php');
 }
 
+//パラメータ受け取り
+//選択したuserのid
+//隠しデータでapiに送る
+$id = $_GET['id'];
+
 include "../../../api/getuserinfo.php";
 $user = new User();
-$userinfo = $user->getUserInfo($_SESSION['selected']);
+$userinfo = $user->getUserInfo($id);
 
 ?>
 
@@ -43,6 +48,7 @@ $userinfo = $user->getUserInfo($_SESSION['selected']);
 
         <!--コンテンツ-->
         <form id="getContents" action="../../../api/deleteuser.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <p>ユーザー名　：<?php echo $userinfo['name']; ?> </p>
             <p>所属部署　：<?php echo $userinfo['department']; ?></p>
             

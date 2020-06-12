@@ -14,6 +14,8 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
 
 
 // パラメータ受け取り
+// 選択中userのid
+// 隠しデータでupdate_admin.phpに送る
 $id = $_GET['id'];
 // if (!is_numeric($id) || $id <= 0) {
 //   print('パラメータは1以上の数字で指定してください');
@@ -24,7 +26,6 @@ $id = $_GET['id'];
 include "../../../api/getuserinfo.php";
 $user = new User();
 $userinfo = $user->getUserInfo($id);
-$_SESSION['selected'] = $id;
 
 ?>
 <!DOCTYPE html>
@@ -79,8 +80,9 @@ $_SESSION['selected'] = $id;
                     <input name="password" id="pass" value="<?php echo $userinfo['password']; ?>" type="password" pattern="[0-9A-Za-z]{6}" maxlength="6">
                 </li>
             </ul>
+            <input type="hidden" name='id' value="<?php echo $id; ?>">
             <input id="button" disabled type="submit" value="変更を保存">
-            <a href="deleteUser.php">このユーザーを削除しますか？</a>
+            <a href="deleteUser.php?id=<?php echo $id; ?>">このユーザーを削除しますか？</a>
         </form>
         <script src="update_admin.js"></script>
     </body>
