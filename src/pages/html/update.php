@@ -7,6 +7,9 @@ if (!isset($_SESSION['id'])) {
     header('Location: login.php');
 }
 
+//パラメータを変数に代入
+//隠しデータでapiに送る
+$id = $_GET['id'];
 
 // ログイン中ユーザの情報を変数に代入
 include '../../api/getuserinfo.php';
@@ -82,7 +85,7 @@ $user = $obj->getUserInfo($_SESSION['id']);
                 <?php print('/images/user_default.jpeg'); ?>
             <?php endif; ?>"></p>
         </div>
-        
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input id="button" type="submit" value="変更を保存" />
             <p id="message">※所属部署・氏名に変更が必要な方はシステム管理者までご連絡ください。</p>
         </form>

@@ -2,7 +2,7 @@
 session_start();
 
 // パラメータで送られてきたidを取得して変数に代入
-$id = $_REQUEST['id'];
+$id = $_GET['id'];
 // if (!is_numeric($id) || $id <= 0) {
 //   print('パラメータは1以上の数字で指定してください');
 //   exit();
