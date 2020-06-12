@@ -12,25 +12,19 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
     header('Location: ../login.php');
 }
 
-// myposts.phpの５－９行目をコピーし、
-// パラメータを受け取る
-$id = $_REQUEST['id'];
+
+// パラメータ受け取り
+$id = $_GET['id'];
 // if (!is_numeric($id) || $id <= 0) {
 //   print('パラメータは1以上の数字で指定してください');
 //   exit();
 // }
 
-//初期値を入れる
-//受け取ったidを引数にして、getUserInfoを呼び出し値を取得
-//結果をｈｔｍｌの中に埋め込む
+
 include "../../../api/getuserinfo.php";
 $user = new User();
 $userinfo = $user->getUserInfo($id);
 $_SESSION['selected'] = $id;
-//divタグをformに変更
-//formのアクションにAPIのupdateuser.phpを指定、メソッドも定義
-//updateuser.phpにformから受け取った値でDBの情報をupdateする処理を書く
-//更新後のリダイレクト先はユーザ一覧画面
 
 ?>
 <!DOCTYPE html>

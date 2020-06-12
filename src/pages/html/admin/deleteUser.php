@@ -12,6 +12,7 @@ if (!isset($_SESSION['id']) || !$result['is_admin']) {
 include "../../../api/getuserinfo.php";
 $user = new User();
 $userinfo = $user->getUserInfo($_SESSION['selected']);
+
 ?>
 
 

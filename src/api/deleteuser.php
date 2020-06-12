@@ -3,20 +3,21 @@
 session_start();
 include('setting.php');
 
-    
+
 $stmt = $db->prepare('UPDATE users 
 SET is_deleted = true
 WHERE id = :id');
 
-$result = $stmt->execute(array(':id' => $_SESSION['selected']));
+$stmt->execute(array(':id' => $_SESSION['selected']));
 
-if($result){
-unset($_SESSION['selected']);
-header("Location: ../pages/html/admin/getUsers.php");
+$count = $stmt->rowCount();
+
+if($count){
+  unset($_SESSION['selected']);
+  header("Location: ../pages/html/admin/getUsers.php");
 }else{
-echo "削除に失敗しました";
+  unset($_SESSION['selected']);
+  echo "削除に失敗しました";
 }
-
-
 
 ?>
