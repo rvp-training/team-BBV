@@ -6,6 +6,7 @@
 //ユーザー編集画面（一般・管理者）で初期値を呼び出す
 //ユーザ削除確認画面で名前と部署名を呼び出す
 
+
 class User{
 
     function getUserInfo($id){

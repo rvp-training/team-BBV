@@ -40,7 +40,7 @@ if($num === 0){
   $stmt = $db->query("UPDATE posts SET created_at = created_at + interval '9 hour' WHERE id=$postId");
 
   foreach($_FILES['image']['tmp_name'] as $i => $tmp_name) {
-      //画像が１枚もなければループを抜ける
+      //画像が選択されていなければ保存しない
       if ($tmp_name === "") {
           continue;
       }
@@ -54,8 +54,6 @@ if($num === 0){
       $stmt->execute();
   }
 
-
-  unset($_SESSION['error']);
 
   if($_POST['workspace'] === "1"){
       header("Location: ../pages/html/posts_system.php");
