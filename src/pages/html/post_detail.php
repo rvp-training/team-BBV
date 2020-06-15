@@ -46,7 +46,7 @@ $record = $sql->fetch(PDO::FETCH_ASSOC);
         </div>
         <div id="sidebar-body">
             <p class="workspace">ワークスペース</p>
-            <p><button class="side-botton" style="background: #f9f1b5;" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p>
+            <p><button class="side-botton" onclick="location.href='/pages/html/posts_system.php'">システム<span class="br">関連</span></button></p>
             <p><input class="side-botton" type="button" onclick="location.href='/pages/html/posts_private.php'" value="日常"></p>
             <p class="logout">
                 <button type="submit" onclick="location.href='../../api/logout.php'">
