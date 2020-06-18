@@ -253,6 +253,7 @@ p.comment_text {
     padding: 0;
     margin: 6px 0 0 1em;
     box-sizing: border-box;
+    word-wrap: break-word;
 }
 
 hr.comment_border {
