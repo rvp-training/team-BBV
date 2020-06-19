@@ -78,7 +78,8 @@ include '../../api/getMyPosts.php';
             </div>
             <div class="top-position">
                 <a href="post_detail.php?id=<?php print($mypost['id'])?>">
-                    <img class="top" src="<?php echo '../../images/uploads/'. $mypost["image_path"][0] ?>" loading="lazy">
+                <img class="top" src="<?php echo '/images/uploads/'.$post['id'].'-0.jpg'; ?>" loading="lazy">
+                    
                 </a>
             </div>
         </div>
