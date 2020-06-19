@@ -109,7 +109,8 @@ foreach ($db->query($sql) as $row) {
             </div>
             <div class="top-position">
                 <a href="post_detail.php?id=<?php print $post['id']; ?>">
-                    <img class="top" src=<?php echo '/images/uploads/'.$post['image_path'][0]; ?> loading="lazy">
+                    <img class="top" src="<?php echo '/images/uploads/'.$post['id'].'-0.jpg'; ?>" loading="lazy">
+
                 </a>
             </div>
         </div>
