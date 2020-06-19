@@ -9,4 +9,3 @@ curl -s http://localhost/api/db/create_tables/images.php
 curl -s http://localhost/api/db/create_tables/likes.php
 curl -s http://localhost/api/db/data/workspaces.php
 curl -s http://localhost/api/db/data/departments.php
-curl -s http://localhost/api/db/data/users.php
